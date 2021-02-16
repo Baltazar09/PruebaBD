@@ -1,0 +1,7 @@
+﻿CREATE TABLE [seguridad].[t_seg_modulo] (
+    [PK_MODULO] INT            IDENTITY (1, 1) NOT NULL,
+    [NOMBRE]    NVARCHAR (100) NOT NULL,
+    [STATUS]    BIT            NOT NULL,
+    CONSTRAINT [PK_MODULO] PRIMARY KEY CLUSTERED ([PK_MODULO] ASC)
+);
+

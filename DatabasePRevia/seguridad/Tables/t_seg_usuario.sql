@@ -1,0 +1,25 @@
+﻿CREATE TABLE [seguridad].[t_seg_usuario] (
+    [PK_USUARIO]          INT             IDENTITY (1, 1) NOT NULL,
+    [EMAIL]               NVARCHAR (100)  NULL,
+    [USUARIO]             NVARCHAR (100)  NULL,
+    [NOMBRE]              NVARCHAR (50)   NULL,
+    [P_APELLIDO]          NVARCHAR (50)   NULL,
+    [S_APELLIDO]          NVARCHAR (50)   NULL,
+    [EMAIL_CONFIRMADO]    BIT             NOT NULL,
+    [PASSWORD]            NVARCHAR (MAX)  NULL,
+    [TELEFONO_PRINCIPAL]  NVARCHAR (20)   NULL,
+    [TELEFONO_SECUNDARIO] NVARCHAR (20)   NULL,
+    [TELEFONO_CONFIRMADO] BIT             NOT NULL,
+    [TWOFACTORENABLED]    BIT             NOT NULL,
+    [FECHA_CREACION]      DATETIME        NULL,
+    [FECHA_ACTUALIZACION] DATETIME        NULL,
+    [INTENTOS_FALLIDOS]   INT             NULL,
+    [FECHA_ULTIMOINGRESO] DATETIME        NULL,
+    [ESTADO_USUARIO]      CHAR (1)        NULL,
+    [IMAGEN_USUARIO]      VARBINARY (MAX) NULL,
+    [FK_ROL]              INT             NULL,
+    [STATUS]              BIT             NOT NULL,
+    CONSTRAINT [PK_USUARIO] PRIMARY KEY CLUSTERED ([PK_USUARIO] ASC),
+    CONSTRAINT [FK_t_seg_usuario_t_seg_rol] FOREIGN KEY ([FK_ROL]) REFERENCES [seguridad].[t_seg_rol] ([PK_ROL])
+);
+

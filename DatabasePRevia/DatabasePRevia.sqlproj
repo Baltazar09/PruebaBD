@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>DatabasePRevia</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{af10d1ac-43df-4fa8-a57f-3d1d33f4169c}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>DatabasePRevia</RootNamespace>
+    <AssemblyName>DatabasePRevia</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="catalogos\" />
+    <Folder Include="catalogos\Tables\" />
+    <Folder Include="seguridad\" />
+    <Folder Include="seguridad\Tables\" />
+    <Folder Include="serilog\" />
+    <Folder Include="serilog\Tables\" />
+    <Folder Include="Security\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\t_cat_admin_gestion.sql" />
+    <Build Include="catalogos\Tables\t_cat_canton.sql" />
+    <Build Include="seguridad\Tables\t_seg_usuario.sql" />
+    <Build Include="dbo\Tables\t_cat_categoria_subclasificacion.sql" />
+    <Build Include="catalogos\Tables\t_cat_distrito.sql" />
+    <Build Include="seguridad\Tables\t_seg_modulo.sql" />
+    <Build Include="dbo\Tables\t_cat_forma_cancelacion.sql" />
+    <Build Include="seguridad\Tables\t_seg_pantalla.sql" />
+    <Build Include="dbo\Tables\t_cat_naturaleza_inmueble.sql" />
+    <Build Include="seguridad\Tables\t_seg_operacion.sql" />
+    <Build Include="dbo\Tables\t_cat_servicio_requerido.sql" />
+    <Build Include="seguridad\Tables\t_seg_rol_operacion.sql" />
+    <Build Include="dbo\Tables\t_cat_subclasificacion.sql" />
+    <Build Include="dbo\Tables\t_cat_tipo_averia.sql" />
+    <Build Include="seguridad\Tables\t_seg_rol.sql" />
+    <Build Include="dbo\Tables\t_cat_tipo_identificacion.sql" />
+    <Build Include="dbo\Tables\t_cat_tipo_Proyecto.sql" />
+    <Build Include="catalogos\Tables\t_cat_provincia.sql" />
+    <Build Include="dbo\Tables\t_cat_tipo_servicio.sql" />
+    <Build Include="dbo\Tables\t_cat_tipo_solicitud_servicio.sql" />
+    <Build Include="dbo\Tables\t_cat_tipo_titular_inmueble.sql" />
+    <Build Include="dbo\Tables\t_cat_tipo_uso.sql" />
+    <Build Include="dbo\Tables\t_ges_arreglo_pago.sql" />
+    <Build Include="dbo\Tables\t_ges_devolucion.sql" />
+    <Build Include="dbo\Tables\t_ges_disponibilidad_agua.sql" />
+    <Build Include="dbo\Tables\t_ges_firma_gestion.sql" />
+    <Build Include="dbo\Tables\t_ges_gestion.sql" />
+    <Build Include="dbo\Tables\t_ges_informacion_titular.sql" />
+    <Build Include="dbo\Tables\t_ges_localizacion_inmueble.sql" />
+    <Build Include="dbo\Tables\t_ges_encargado_transporte.sql" />
+    <Build Include="dbo\Tables\t_ges_medio_notificacion.sql" />
+    <Build Include="dbo\Tables\t_ges_camion_sisterna.sql" />
+    <Build Include="dbo\Tables\t_ges_nuevo_servicio.sql" />
+    <Build Include="dbo\Tables\t_ges_proyecto.sql" />
+    <Build Include="dbo\Tables\t_ges_venta_agua_volumen_movil.sql" />
+    <Build Include="dbo\Tables\t_ges_nave.sql" />
+    <Build Include="dbo\Tables\t_cat_tipo_plano.sql" />
+    <Build Include="dbo\Tables\t_srv_reporte_averia.sql" />
+    <Build Include="dbo\Tables\t_srv_tramite_gecose.sql" />
+    <Build Include="dbo\Tables\t_ges_solicitante.sql" />
+    <Build Include="serilog\Tables\ApplicationLog.sql" />
+    <Build Include="dbo\Tables\t_cat_tipo_calidad.sql" />
+    <Build Include="dbo\Tables\t_ges_cambio_titular.sql" />
+    <Build Include="Security\catalogos.sql" />
+    <Build Include="Security\gestiones.sql" />
+    <Build Include="Security\seguridad.sql" />
+    <Build Include="Security\serilog.sql" />
+  </ItemGroup>
+</Project>
