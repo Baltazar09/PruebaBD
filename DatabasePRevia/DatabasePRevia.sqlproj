@@ -124,6 +124,8 @@
     <Build Include="dbo\Tables\t_cat_tipo_datos_solicitante.sql" />
     <Build Include="dbo\Tables\t_cat_tipo_accion.sql" />
     <Build Include="dbo\Tables\t_cat_objetivo_constancia.sql" />
-    <Build Include="dbo\Tables\t_cat_calidad_solicitante_1.sql" />
+    <Build Include="dbo\Tables\t_cat_calidad_solicitante.sql" />
+    <Build Include="dbo\Tables\t_cat_pretension.sql" />
+    <Build Include="dbo\Tables\t_ges_reclamo_importe.sql" />
   </ItemGroup>
 </Project>

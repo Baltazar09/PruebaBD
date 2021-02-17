@@ -9,7 +9,7 @@
     [CEDULA_FISICA]             NVARCHAR (10)   NULL,
     [DIMEX]                     NVARCHAR (12)   NULL,
     [PASAPORTE]                 NVARCHAR (20)   NULL,
-    [NIS]                       INT             NULL,
+    [NIS]                       NVARCHAR(7),
     [JUSTIFICACION_SOLICITUD]   NVARCHAR (1000) NULL,
     [URL_DOC_IDENTIFICACION]    NVARCHAR (250)  NULL,
     [STATUS]                    BIT             NULL,

@@ -6,7 +6,7 @@
     [P_APELLIDO]               NVARCHAR (20)   NULL,
     [S_APELLIDO]               NVARCHAR (20)   NULL,
     [TIPO_SOLICITANTE]         CHAR (1)        NOT NULL,
-    [NIS]                      INT             NULL,
+    [NIS]                      NVARCHAR(7),
     [NOMBRE_TITULAR]           NVARCHAR (50)   NULL,
     [IDENTIFICACION]           VARBINARY (MAX) NULL,
     [STATUS]                   BIT             NOT NULL,

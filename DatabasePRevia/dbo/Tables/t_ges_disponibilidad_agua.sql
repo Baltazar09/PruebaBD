@@ -3,7 +3,7 @@
     [FK_TIPO_PROYECTO]        INT           NOT NULL,
     [NOLOTES]                 INT           NULL,
     [TIENENIS]                BIT           NULL,
-    [NIS]                     INT           NULL,
+    [NIS]                     NVARCHAR(7),
     [UNDCONSUMO]              INT           NULL,
     [FK_NATURALEZA_INMUEBLE]  INT           NULL,
     [FOLIO_REAL]              NVARCHAR (18) NULL,
