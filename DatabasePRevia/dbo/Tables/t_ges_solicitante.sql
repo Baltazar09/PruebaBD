@@ -5,6 +5,8 @@
     [S_TELEFONO]       NCHAR (10)  NULL,
     [EMAIL]            NCHAR (100) NULL,
     [FK_DISTRITO]      INT         NULL,
+    [FK_CANTON]      INT         NULL,
+    [FK_PROVINCIA]      INT         NULL,
     [OTRAS_SENIAS]     NCHAR (100) NULL,
     [FK_TIPO_PLANO]    INT         NULL,
     [NUMERO_PLANO]     NCHAR (10)  NULL,
@@ -16,7 +18,7 @@
     [DOCUMENTO_CEDULA] NCHAR (10)  NULL,
     [STATUS]           BIT         NOT NULL,
     CONSTRAINT [PK_t_ges_solicitante] PRIMARY KEY CLUSTERED ([PK_SOLICITANTE] ASC),
-    CONSTRAINT [FK_t_ges_solicitante_t_cat_distrito] FOREIGN KEY ([FK_DISTRITO]) REFERENCES [catalogos].[t_cat_distrito] ([PK_DISTRITO]),
+    CONSTRAINT [FK_t_ges_solicitante_t_cat_distrito] FOREIGN KEY ([FK_DISTRITO],[FK_CANTON],[FK_PROVINCIA]) REFERENCES [catalogos].[t_cat_distrito]([PK_DISTRITO],[PK_CANTON],[PK_PROVINCIA]),
     CONSTRAINT [FK_t_ges_solicitante_t_cat_tipo_plano] FOREIGN KEY ([FK_TIPO_PLANO]) REFERENCES [dbo].[t_cat_tipo_plano] ([PK_TIPO_PLANO]),
     CONSTRAINT [FK_t_ges_solicitante_t_ges_gestion] FOREIGN KEY ([FK_GESTION]) REFERENCES [dbo].[t_ges_gestion] ([PK_GESTION])
 );
