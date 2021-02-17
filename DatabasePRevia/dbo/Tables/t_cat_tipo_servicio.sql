@@ -1,6 +1,9 @@
 ﻿CREATE TABLE [dbo].[t_cat_tipo_servicio] (
     [PK_TIPO_SERVICIO] INT            IDENTITY (1, 1) NOT NULL,
     [DESCRIPCION]      NVARCHAR (100) NULL,
+    [STATUS]           BIT            NOT NULL,
     CONSTRAINT [PK_T_CAT_TIPO_SERVICIO] PRIMARY KEY CLUSTERED ([PK_TIPO_SERVICIO] ASC)
 );
+
+
 

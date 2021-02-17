@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[t_cat_pretension] (
+    [PK_PRETENSION] INT            IDENTITY (1, 1) NOT NULL,
+    [NOMBRE]        NVARCHAR (100) NULL,
+    [STATUS]        BIT            DEFAULT ((1)) NOT NULL,
+    CONSTRAINT [PK_T_CAT_PRETENSION] PRIMARY KEY CLUSTERED ([PK_PRETENSION] ASC)
+);
+
