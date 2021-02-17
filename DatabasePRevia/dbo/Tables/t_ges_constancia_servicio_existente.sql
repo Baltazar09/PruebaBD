@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[t_ges_constancia_servicio_existente] (
     [PK_CONSTANCIA_SERVICIO_EXISTENTE]  INT            NOT NULL,
-    [NIS]                               INT            NULL,
+    [NIS]                               NVARCHAR(7),
     [FK_NATURALEZA_INMUEBLE]            INT            NULL,
     [FK_TITULO_PROPIEDAD]               INT            NULL,
     [FOLIO_MATRICULA]                   NVARCHAR (20)  NULL,

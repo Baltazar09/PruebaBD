@@ -7,7 +7,7 @@
     [P_APELLIDO]             NVARCHAR (20)   NULL,
     [S_APELLIDO]             NVARCHAR (20)   NULL,
     [IDENTIFICACION]         NVARCHAR (20)   NULL,
-    [NIS]                    INT             NULL,
+    [NIS]                    NVARCHAR(7),
     [NOMBRE_TITULAR]         NVARCHAR (50)   NULL,
     [FACTURAS_RECLAMADAS]    NVARCHAR (100)  NULL,
     [SOLICITUD]              NVARCHAR (1000) NULL,
