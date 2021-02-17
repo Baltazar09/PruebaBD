@@ -46,23 +46,39 @@
 		</Element>
 		<Element Type="SqlDefaultConstraint">
 			<Property Name="DefaultExpressionScript">
-				<Value><![CDATA[('A')]]></Value>
+				<Value><![CDATA[((1))]]></Value>
 			</Property>
 			<Relationship Name="DefiningTable">
 				<Entry>
-					<References Name="[dbo].[t_cat_tipo_identificacion]" />
+					<References Name="[dbo].[t_cat_pretension]" />
 				</Entry>
 			</Relationship>
 			<Relationship Name="ForColumn">
 				<Entry>
-					<References Name="[dbo].[t_cat_tipo_identificacion].[STATUS]" />
+					<References Name="[dbo].[t_cat_pretension].[STATUS]" />
 				</Entry>
 			</Relationship>
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="3" />
 		</Element>
 		<Element Type="SqlDefaultConstraint">
 			<Property Name="DefaultExpressionScript">
-				<Value><![CDATA[('A')]]></Value>
+				<Value><![CDATA[((1))]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[t_cat_calidad_solicitante]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[t_cat_calidad_solicitante].[STATUS]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="4" />
+		</Element>
+		<Element Type="SqlDefaultConstraint">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[((1))]]></Value>
 			</Property>
 			<Relationship Name="DefiningTable">
 				<Entry>
@@ -74,7 +90,55 @@
 					<References Name="[dbo].[t_srv_tramite_gecose].[STATUS]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="4" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="5" />
+		</Element>
+		<Element Type="SqlDefaultConstraint">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[((1))]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[t_cat_tipo_identificacion]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[t_cat_tipo_identificacion].[STATUS]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="6" />
+		</Element>
+		<Element Type="SqlDefaultConstraint">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[((1))]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[t_ges_reclamo_importe]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[t_ges_reclamo_importe].[STATUS]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="7" />
+		</Element>
+		<Element Type="SqlDefaultConstraint">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[((1))]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[t_ges_firma_gestion]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[t_ges_firma_gestion].[STATUS]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="8" />
 		</Element>
 		<Element Type="SqlSchema" Name="[catalogos]">
 			<Relationship Name="Authorizer">
@@ -83,10 +147,13 @@
 				</Entry>
 			</Relationship>
 		</Element>
-		<Element Type="SqlForeignKeyConstraint" Name="[catalogos].[FK_t_cat_distrito_t_cat_canton]">
+		<Element Type="SqlForeignKeyConstraint" Name="[catalogos].[FK_T_CAT_DISTRITO_T_CAT_CANTON]">
 			<Relationship Name="Columns">
 				<Entry>
-					<References Name="[catalogos].[t_cat_distrito].[FK_CANTON]" />
+					<References Name="[catalogos].[t_cat_distrito].[PK_CANTON]" />
+				</Entry>
+				<Entry>
+					<References Name="[catalogos].[t_cat_distrito].[PK_PROVINCIA]" />
 				</Entry>
 			</Relationship>
 			<Relationship Name="DefiningTable">
@@ -98,15 +165,18 @@
 				<Entry>
 					<References Name="[catalogos].[t_cat_canton].[PK_CANTON]" />
 				</Entry>
+				<Entry>
+					<References Name="[catalogos].[t_cat_canton].[PK_PROVINCIA]" />
+				</Entry>
 			</Relationship>
 			<Relationship Name="ForeignTable">
 				<Entry>
 					<References Name="[catalogos].[t_cat_canton]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="5" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="9" />
 		</Element>
-		<Element Type="SqlPrimaryKeyConstraint" Name="[catalogos].[PK_t_cat_canton_1]">
+		<Element Type="SqlPrimaryKeyConstraint" Name="[catalogos].[PK_T_CAT_CANTON]">
 			<Relationship Name="ColumnSpecifications">
 				<Entry>
 					<Element Type="SqlIndexedColumnSpecification">
@@ -117,18 +187,27 @@
 						</Relationship>
 					</Element>
 				</Entry>
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[catalogos].[t_cat_canton].[PK_PROVINCIA]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
 			</Relationship>
 			<Relationship Name="DefiningTable">
 				<Entry>
 					<References Name="[catalogos].[t_cat_canton]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="6" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="10" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[catalogos].[PK_T_CAT_CANTON_T_CAT_PROVINCIA]">
 			<Relationship Name="Columns">
 				<Entry>
-					<References Name="[catalogos].[t_cat_canton].[FK_PROVINCIA]" />
+					<References Name="[catalogos].[t_cat_canton].[PK_PROVINCIA]" />
 				</Entry>
 			</Relationship>
 			<Relationship Name="DefiningTable">
@@ -146,9 +225,9 @@
 					<References Name="[catalogos].[t_cat_provincia]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="7" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="11" />
 		</Element>
-		<Element Type="SqlPrimaryKeyConstraint" Name="[catalogos].[PK_t_cat_distrito]">
+		<Element Type="SqlPrimaryKeyConstraint" Name="[catalogos].[PK_T_CAT_DISTRITO]">
 			<Relationship Name="ColumnSpecifications">
 				<Entry>
 					<Element Type="SqlIndexedColumnSpecification">
@@ -159,13 +238,31 @@
 						</Relationship>
 					</Element>
 				</Entry>
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[catalogos].[t_cat_distrito].[PK_CANTON]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[catalogos].[t_cat_distrito].[PK_PROVINCIA]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
 			</Relationship>
 			<Relationship Name="DefiningTable">
 				<Entry>
 					<References Name="[catalogos].[t_cat_distrito]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="8" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="12" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[catalogos].[PK_T_CAT_PROVINCIA]">
 			<Relationship Name="ColumnSpecifications">
@@ -184,7 +281,7 @@
 					<References Name="[catalogos].[t_cat_provincia]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="9" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="13" />
 		</Element>
 		<Element Type="SqlTable" Name="[catalogos].[t_cat_canton]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -207,7 +304,7 @@
 					</Element>
 				</Entry>
 				<Entry>
-					<Element Type="SqlSimpleColumn" Name="[catalogos].[t_cat_canton].[FK_PROVINCIA]">
+					<Element Type="SqlSimpleColumn" Name="[catalogos].[t_cat_canton].[PK_PROVINCIA]">
 						<Property Name="IsNullable" Value="False" />
 						<Relationship Name="TypeSpecifier">
 							<Entry>
@@ -240,13 +337,13 @@
 				</Entry>
 				<Entry>
 					<Element Type="SqlSimpleColumn" Name="[catalogos].[t_cat_canton].[STATUS]">
+						<Property Name="IsNullable" Value="False" />
 						<Relationship Name="TypeSpecifier">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
-									<Property Name="Length" Value="1" />
 									<Relationship Name="Type">
 										<Entry>
-											<References ExternalSource="BuiltIns" Name="[char]" />
+											<References ExternalSource="BuiltIns" Name="[bit]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -260,8 +357,8 @@
 					<References Name="[catalogos]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="6" />
-			<AttachedAnnotation Disambiguator="7" />
+			<AttachedAnnotation Disambiguator="10" />
+			<AttachedAnnotation Disambiguator="11" />
 		</Element>
 		<Element Type="SqlTable" Name="[catalogos].[t_cat_distrito]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -284,7 +381,23 @@
 					</Element>
 				</Entry>
 				<Entry>
-					<Element Type="SqlSimpleColumn" Name="[catalogos].[t_cat_distrito].[FK_CANTON]">
+					<Element Type="SqlSimpleColumn" Name="[catalogos].[t_cat_distrito].[PK_CANTON]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[catalogos].[t_cat_distrito].[PK_PROVINCIA]">
 						<Property Name="IsNullable" Value="False" />
 						<Relationship Name="TypeSpecifier">
 							<Entry>
@@ -317,13 +430,13 @@
 				</Entry>
 				<Entry>
 					<Element Type="SqlSimpleColumn" Name="[catalogos].[t_cat_distrito].[STATUS]">
+						<Property Name="IsNullable" Value="False" />
 						<Relationship Name="TypeSpecifier">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
-									<Property Name="Length" Value="1" />
 									<Relationship Name="Type">
 										<Entry>
-											<References ExternalSource="BuiltIns" Name="[char]" />
+											<References ExternalSource="BuiltIns" Name="[bit]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -337,8 +450,8 @@
 					<References Name="[catalogos]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="8" />
-			<AttachedAnnotation Disambiguator="5" />
+			<AttachedAnnotation Disambiguator="12" />
+			<AttachedAnnotation Disambiguator="9" />
 		</Element>
 		<Element Type="SqlTable" Name="[catalogos].[t_cat_provincia]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -399,71 +512,7 @@
 					<References Name="[catalogos]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="9" />
-		</Element>
-		<Element Type="SqlCheckConstraint" Name="[dbo].[CHK_STATUS_T_CAT_TIPO_IDENTIFICACION]">
-			<Property Name="CheckExpressionScript">
-				<Value><![CDATA[[STATUS]='B' OR [STATUS]='I' OR [STATUS]='A']]></Value>
-			</Property>
-			<Relationship Name="CheckExpressionDependencies">
-				<Entry>
-					<References Name="[dbo].[t_cat_tipo_identificacion].[STATUS]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[t_cat_tipo_identificacion]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="10" />
-		</Element>
-		<Element Type="SqlCheckConstraint" Name="[dbo].[CHK_STATUS_T_SRV_REPORTE_AVERIA]">
-			<Property Name="CheckExpressionScript">
-				<Value><![CDATA[[STATUS]='B' OR [STATUS]='I' OR [STATUS]='A']]></Value>
-			</Property>
-			<Relationship Name="CheckExpressionDependencies">
-				<Entry>
-					<References Name="[dbo].[t_srv_reporte_averia].[STATUS]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[t_srv_reporte_averia]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="11" />
-		</Element>
-		<Element Type="SqlCheckConstraint" Name="[dbo].[CHK_STATUS_T_SRV_TRAMITE_GECOSE]">
-			<Property Name="CheckExpressionScript">
-				<Value><![CDATA[[STATUS]='B' OR [STATUS]='I' OR [STATUS]='A']]></Value>
-			</Property>
-			<Relationship Name="CheckExpressionDependencies">
-				<Entry>
-					<References Name="[dbo].[t_srv_tramite_gecose].[STATUS]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[t_srv_tramite_gecose]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="12" />
-		</Element>
-		<Element Type="SqlCheckConstraint" Name="[dbo].[CHK_STATUS_TIPOAVERIA]">
-			<Property Name="CheckExpressionScript">
-				<Value><![CDATA[[STATUS]='B' OR [STATUS]='I' OR [STATUS]='A']]></Value>
-			</Property>
-			<Relationship Name="CheckExpressionDependencies">
-				<Entry>
-					<References Name="[dbo].[t_cat_tipo_averia].[STATUS]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[t_cat_tipo_averia]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="13" />
+			<AttachedAnnotation Disambiguator="13" />
 		</Element>
 		<Element Type="SqlCheckConstraint" Name="[dbo].[CHK_TIPO_SOLICITANTE_T_GES_ARREGLO_PAGO]">
 			<Property Name="CheckExpressionScript">
@@ -513,6 +562,118 @@
 			</Relationship>
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="16" />
 		</Element>
+		<Element Type="SqlDefaultConstraint" Name="[dbo].[DF_t_cat_admin_gestion_STATUS]">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[((1))]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[t_cat_admin_gestion]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[t_cat_admin_gestion].[STATUS]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="17" />
+		</Element>
+		<Element Type="SqlDefaultConstraint" Name="[dbo].[DF_t_cat_categoria_subclasificacion_STATUS]">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[((1))]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[t_cat_categoria_subclasificacion]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[t_cat_categoria_subclasificacion].[STATUS]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="18" />
+		</Element>
+		<Element Type="SqlDefaultConstraint" Name="[dbo].[DF_t_cat_naturaleza_inmueble_STATUS]">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[((1))]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[t_cat_naturaleza_inmueble]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[t_cat_naturaleza_inmueble].[STATUS]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="19" />
+		</Element>
+		<Element Type="SqlDefaultConstraint" Name="[dbo].[DF_t_cat_servicio_requerido_STATUS]">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[((1))]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[t_cat_servicio_requerido]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[t_cat_servicio_requerido].[STATUS]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="20" />
+		</Element>
+		<Element Type="SqlDefaultConstraint" Name="[dbo].[DF_t_cat_subclasificacion_STATUS]">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[((1))]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[t_cat_subclasificacion]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[t_cat_subclasificacion].[STATUS]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="21" />
+		</Element>
+		<Element Type="SqlDefaultConstraint" Name="[dbo].[DF_t_cat_tipo_Proyecto_STATUS]">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[((1))]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[t_cat_tipo_Proyecto]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[t_cat_tipo_Proyecto].[STATUS]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="22" />
+		</Element>
+		<Element Type="SqlDefaultConstraint" Name="[dbo].[DF_t_cat_tipo_solicitud_servicio_STATUS]">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[((1))]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[t_cat_tipo_solicitud_servicio]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[t_cat_tipo_solicitud_servicio].[STATUS]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="23" />
+		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_t_cat_categoria_subclasificacion_t_cat_subclasificacion]">
 			<Relationship Name="Columns">
 				<Entry>
@@ -534,7 +695,7 @@
 					<References Name="[dbo].[t_cat_subclasificacion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="17" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="24" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_T_CAT_TIPO_SOLICITUD_SERVICIO_T_CAT_SERVICIO_REQUERIDO]">
 			<Relationship Name="Columns">
@@ -557,7 +718,7 @@
 					<References Name="[dbo].[t_cat_servicio_requerido]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="18" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="25" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_T_GES_ARREGLO_PAGO_T_CAT_TIPO_IDENTIFICACION]">
 			<Relationship Name="Columns">
@@ -580,7 +741,7 @@
 					<References Name="[dbo].[t_cat_tipo_identificacion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="19" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="26" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_T_GES_ARREGLO_PAGO_T_GES_GESTION]">
 			<Relationship Name="Columns">
@@ -603,7 +764,7 @@
 					<References Name="[dbo].[t_ges_gestion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="20" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="27" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_t_ges_cambio_titular_t_cat_tipo_calidad]">
 			<Relationship Name="Columns">
@@ -626,7 +787,7 @@
 					<References Name="[dbo].[t_cat_tipo_calidad]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="21" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="28" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_t_ges_cambio_titular_t_ges_gestion]">
 			<Relationship Name="Columns">
@@ -649,7 +810,7 @@
 					<References Name="[dbo].[t_ges_gestion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="22" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="29" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_t_ges_camion_sisterna_t_ges_encargado_transporte]">
 			<Relationship Name="Columns">
@@ -672,7 +833,7 @@
 					<References Name="[dbo].[t_ges_encargado_transporte]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="23" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="30" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_t_ges_camion_sisterna_t_ges_gestion1]">
 			<Relationship Name="Columns">
@@ -695,7 +856,7 @@
 					<References Name="[dbo].[t_ges_gestion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="24" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="31" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_T_GES_DEVOLUCION_T_CAT_TIPO_IDENTIFICACION]">
 			<Relationship Name="Columns">
@@ -718,7 +879,7 @@
 					<References Name="[dbo].[t_cat_tipo_identificacion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="25" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="32" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_T_GES_DEVOLUCION_T_GES_GESTION]">
 			<Relationship Name="Columns">
@@ -741,7 +902,7 @@
 					<References Name="[dbo].[t_ges_gestion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="26" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="33" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_t_ges_disponibilidad_agua_t_cat_naturaleza_inmueble]">
 			<Relationship Name="Columns">
@@ -764,7 +925,7 @@
 					<References Name="[dbo].[t_cat_naturaleza_inmueble]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="27" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="34" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_t_ges_disponibilidad_agua_t_cat_tipo_Proyecto]">
 			<Relationship Name="Columns">
@@ -787,7 +948,7 @@
 					<References Name="[dbo].[t_cat_tipo_Proyecto]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="28" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="35" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_t_ges_disponibilidad_agua_t_ges_gestion]">
 			<Relationship Name="Columns">
@@ -810,7 +971,7 @@
 					<References Name="[dbo].[t_ges_gestion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="29" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="36" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_T_GES_FIRMA_GESTION_T_CAT_TIPO_IDENTIFICACION]">
 			<Relationship Name="Columns">
@@ -833,7 +994,7 @@
 					<References Name="[dbo].[t_cat_tipo_identificacion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="30" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="37" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_T_GES_FIRMA_GESTION_T_GES_GESTION]">
 			<Relationship Name="Columns">
@@ -856,7 +1017,7 @@
 					<References Name="[dbo].[t_ges_gestion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="31" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="38" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_T_GES_GESTION_T_CAT_ADMIN_GESTION]">
 			<Relationship Name="Columns">
@@ -879,7 +1040,7 @@
 					<References Name="[dbo].[t_cat_admin_gestion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="32" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="39" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_T_GES_GESTION_T_SEG_USUARIO]">
 			<Relationship Name="Columns">
@@ -902,7 +1063,7 @@
 					<References Name="[seguridad].[t_seg_usuario]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="33" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="40" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_T_GES_INFORMACION_TITULAR_T_CAT_TIPO_TITULAR_INMUEBLE]">
 			<Relationship Name="Columns">
@@ -925,7 +1086,7 @@
 					<References Name="[dbo].[t_cat_tipo_titular_inmueble]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="34" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="41" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_T_GES_INFORMACION_TITULAR_T_GES_GESTION]">
 			<Relationship Name="Columns">
@@ -948,10 +1109,16 @@
 					<References Name="[dbo].[t_ges_gestion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="35" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="42" />
 		</Element>
-		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_t_ges_localizacion_inmueble_t_cat_provincia]">
+		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_t_ges_localizacion_inmueble_t_cat_distrito]">
 			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[t_ges_localizacion_inmueble].[FK_DISTRITO]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[t_ges_localizacion_inmueble].[FK_CANTON]" />
+				</Entry>
 				<Entry>
 					<References Name="[dbo].[t_ges_localizacion_inmueble].[FK_PROVINCIA]" />
 				</Entry>
@@ -963,15 +1130,21 @@
 			</Relationship>
 			<Relationship Name="ForeignColumns">
 				<Entry>
-					<References Name="[catalogos].[t_cat_provincia].[PK_PROVINCIA]" />
+					<References Name="[catalogos].[t_cat_distrito].[PK_DISTRITO]" />
+				</Entry>
+				<Entry>
+					<References Name="[catalogos].[t_cat_distrito].[PK_CANTON]" />
+				</Entry>
+				<Entry>
+					<References Name="[catalogos].[t_cat_distrito].[PK_PROVINCIA]" />
 				</Entry>
 			</Relationship>
 			<Relationship Name="ForeignTable">
 				<Entry>
-					<References Name="[catalogos].[t_cat_provincia]" />
+					<References Name="[catalogos].[t_cat_distrito]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="36" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="43" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_t_ges_localizacion_inmueble_t_ges_gestion]">
 			<Relationship Name="Columns">
@@ -994,7 +1167,7 @@
 					<References Name="[dbo].[t_ges_gestion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="37" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="44" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_T_GES_MEDIO_NOTIFICACION_GESTION]">
 			<Relationship Name="Columns">
@@ -1017,7 +1190,7 @@
 					<References Name="[dbo].[t_ges_gestion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="38" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="45" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_t_ges_nave_t_ges_encargado_transporte]">
 			<Relationship Name="Columns">
@@ -1040,7 +1213,7 @@
 					<References Name="[dbo].[t_ges_encargado_transporte]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="39" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="46" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_t_ges_nave_t_ges_gestion]">
 			<Relationship Name="Columns">
@@ -1063,7 +1236,7 @@
 					<References Name="[dbo].[t_ges_gestion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="40" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="47" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_T_GES_NUEVO_SERVICIO_T_CAT_FORMA_CANCELACION]">
 			<Relationship Name="Columns">
@@ -1086,7 +1259,7 @@
 					<References Name="[dbo].[t_cat_forma_cancelacion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="41" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="48" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_T_GES_NUEVO_SERVICIO_T_CAT_SERVICIO_REQUERIDO]">
 			<Relationship Name="Columns">
@@ -1109,7 +1282,7 @@
 					<References Name="[dbo].[t_cat_servicio_requerido]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="42" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="49" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_T_GES_NUEVO_SERVICIO_T_CAT_TIPO_SOLICITUD_SERVICIO]">
 			<Relationship Name="Columns">
@@ -1138,7 +1311,7 @@
 					<References Name="[dbo].[t_cat_tipo_solicitud_servicio]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="43" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="50" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_t_ges_nuevo_servicio_t_ges_gestion]">
 			<Relationship Name="Columns">
@@ -1161,7 +1334,7 @@
 					<References Name="[dbo].[t_ges_gestion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="44" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="51" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_t_ges_proyecto_t_cat_categoria_subclasificacion]">
 			<Relationship Name="Columns">
@@ -1190,7 +1363,7 @@
 					<References Name="[dbo].[t_cat_categoria_subclasificacion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="45" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="52" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_t_ges_proyecto_t_cat_subclasificacion]">
 			<Relationship Name="Columns">
@@ -1213,7 +1386,7 @@
 					<References Name="[dbo].[t_cat_subclasificacion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="46" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="53" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_t_ges_proyecto_t_cat_tipo_servicio]">
 			<Relationship Name="Columns">
@@ -1236,7 +1409,7 @@
 					<References Name="[dbo].[t_cat_tipo_servicio]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="47" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="54" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_t_ges_proyecto_t_cat_tipo_uso]">
 			<Relationship Name="Columns">
@@ -1259,7 +1432,7 @@
 					<References Name="[dbo].[t_cat_tipo_uso]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="48" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="55" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_t_ges_proyecto_t_ges_gestion]">
 			<Relationship Name="Columns">
@@ -1282,12 +1455,110 @@
 					<References Name="[dbo].[t_ges_gestion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="49" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="56" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_T_GES_RECLAMO_IMPORTE_T_CAT_CALIDAD_SOLICITANTE]">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[t_ges_reclamo_importe].[FK_CALIDAD_SOLICITANTE]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[t_ges_reclamo_importe]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[t_cat_calidad_solicitante].[PK_CALIDAD_SOLICITANTE]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[t_cat_calidad_solicitante]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="57" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_T_GES_RECLAMO_IMPORTE_T_CAT_PRETENSION]">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[t_ges_reclamo_importe].[FK_PRETENSION]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[t_ges_reclamo_importe]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[t_cat_pretension].[PK_PRETENSION]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[t_cat_pretension]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="58" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_T_GES_RECLAMO_IMPORTE_T_CAT_TIPO_IDENTIFICACION]">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[t_ges_reclamo_importe].[FK_TIPO_IDENTIFICACION]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[t_ges_reclamo_importe]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[t_cat_tipo_identificacion].[PK_TIPO_IDENTIFICACION]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[t_cat_tipo_identificacion]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="59" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_T_GES_RECLAMO_IMPORTE_T_GES_GESTION]">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[t_ges_reclamo_importe].[PK_RECLAMO_IMPORTE]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[t_ges_reclamo_importe]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[t_ges_gestion].[PK_GESTION]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[t_ges_gestion]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="60" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_t_ges_solicitante_t_cat_distrito]">
 			<Relationship Name="Columns">
 				<Entry>
 					<References Name="[dbo].[t_ges_solicitante].[FK_DISTRITO]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[t_ges_solicitante].[FK_CANTON]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[t_ges_solicitante].[FK_PROVINCIA]" />
 				</Entry>
 			</Relationship>
 			<Relationship Name="DefiningTable">
@@ -1299,13 +1570,19 @@
 				<Entry>
 					<References Name="[catalogos].[t_cat_distrito].[PK_DISTRITO]" />
 				</Entry>
+				<Entry>
+					<References Name="[catalogos].[t_cat_distrito].[PK_CANTON]" />
+				</Entry>
+				<Entry>
+					<References Name="[catalogos].[t_cat_distrito].[PK_PROVINCIA]" />
+				</Entry>
 			</Relationship>
 			<Relationship Name="ForeignTable">
 				<Entry>
 					<References Name="[catalogos].[t_cat_distrito]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="50" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="61" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_t_ges_solicitante_t_cat_tipo_plano]">
 			<Relationship Name="Columns">
@@ -1328,7 +1605,7 @@
 					<References Name="[dbo].[t_cat_tipo_plano]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="51" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="62" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_t_ges_solicitante_t_ges_gestion]">
 			<Relationship Name="Columns">
@@ -1351,7 +1628,7 @@
 					<References Name="[dbo].[t_ges_gestion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="52" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="63" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_t_ges_venta_agua_volumen_movil_t_ges_gestion]">
 			<Relationship Name="Columns">
@@ -1374,10 +1651,16 @@
 					<References Name="[dbo].[t_ges_gestion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="53" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="64" />
 		</Element>
-		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_T_SRV_REPORTE_AVERIA_T_CAT_PROVINCIA]">
+		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_T_SRV_REPORTE_AVERIA_T_CAT_DISTRITO]">
 			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[t_srv_reporte_averia].[FK_DISTRITO]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[t_srv_reporte_averia].[FK_CANTON]" />
+				</Entry>
 				<Entry>
 					<References Name="[dbo].[t_srv_reporte_averia].[FK_PROVINCIA]" />
 				</Entry>
@@ -1389,15 +1672,21 @@
 			</Relationship>
 			<Relationship Name="ForeignColumns">
 				<Entry>
-					<References Name="[catalogos].[t_cat_provincia].[PK_PROVINCIA]" />
+					<References Name="[catalogos].[t_cat_distrito].[PK_DISTRITO]" />
+				</Entry>
+				<Entry>
+					<References Name="[catalogos].[t_cat_distrito].[PK_CANTON]" />
+				</Entry>
+				<Entry>
+					<References Name="[catalogos].[t_cat_distrito].[PK_PROVINCIA]" />
 				</Entry>
 			</Relationship>
 			<Relationship Name="ForeignTable">
 				<Entry>
-					<References Name="[catalogos].[t_cat_provincia]" />
+					<References Name="[catalogos].[t_cat_distrito]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="54" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="65" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_T_SRV_REPORTE_AVERIA_T_CAT_TIPO_AVERIA]">
 			<Relationship Name="Columns">
@@ -1420,7 +1709,7 @@
 					<References Name="[dbo].[t_cat_tipo_averia]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="55" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="66" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_T_SRV_TRAMITE_GECOSE_T_CAT_TIPO_IDENTIFICACION]">
 			<Relationship Name="Columns">
@@ -1443,7 +1732,7 @@
 					<References Name="[dbo].[t_cat_tipo_identificacion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="56" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="67" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_T_CAT_ADMIN_GESTION]">
 			<Relationship Name="ColumnSpecifications">
@@ -1462,7 +1751,26 @@
 					<References Name="[dbo].[t_cat_admin_gestion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="57" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="68" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_T_CAT_CALIDAD_SOLICITANTE]">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[t_cat_calidad_solicitante].[PK_CALIDAD_SOLICITANTE]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[t_cat_calidad_solicitante]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="69" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_t_cat_categoria_subclasificacion]">
 			<Relationship Name="ColumnSpecifications">
@@ -1490,7 +1798,7 @@
 					<References Name="[dbo].[t_cat_categoria_subclasificacion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="58" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="70" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_T_CAT_FORMA_CANCELACION]">
 			<Relationship Name="ColumnSpecifications">
@@ -1509,7 +1817,7 @@
 					<References Name="[dbo].[t_cat_forma_cancelacion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="59" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="71" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_T_CAT_NATURALEZA_INMUEBLE]">
 			<Relationship Name="ColumnSpecifications">
@@ -1528,7 +1836,26 @@
 					<References Name="[dbo].[t_cat_naturaleza_inmueble]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="60" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="72" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_T_CAT_PRETENSION]">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[t_cat_pretension].[PK_PRETENSION]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[t_cat_pretension]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="73" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_t_cat_servicio_requerido]">
 			<Relationship Name="ColumnSpecifications">
@@ -1547,7 +1874,7 @@
 					<References Name="[dbo].[t_cat_servicio_requerido]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="61" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="74" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_t_cat_subclasificacion]">
 			<Relationship Name="ColumnSpecifications">
@@ -1566,7 +1893,7 @@
 					<References Name="[dbo].[t_cat_subclasificacion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="62" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="75" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_T_CAT_TIPO_AVERIA]">
 			<Relationship Name="ColumnSpecifications">
@@ -1585,7 +1912,7 @@
 					<References Name="[dbo].[t_cat_tipo_averia]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="63" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="76" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_t_cat_tipo_calidad]">
 			<Relationship Name="ColumnSpecifications">
@@ -1604,7 +1931,7 @@
 					<References Name="[dbo].[t_cat_tipo_calidad]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="64" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="77" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_T_CAT_TIPO_IDENTIFICACION]">
 			<Relationship Name="ColumnSpecifications">
@@ -1623,7 +1950,7 @@
 					<References Name="[dbo].[t_cat_tipo_identificacion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="65" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="78" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_t_cat_tipo_plano]">
 			<Relationship Name="ColumnSpecifications">
@@ -1642,7 +1969,7 @@
 					<References Name="[dbo].[t_cat_tipo_plano]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="66" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="79" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_T_CAT_TIPO_PROYECTO]">
 			<Relationship Name="ColumnSpecifications">
@@ -1661,7 +1988,7 @@
 					<References Name="[dbo].[t_cat_tipo_Proyecto]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="67" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="80" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_T_CAT_TIPO_SERVICIO]">
 			<Relationship Name="ColumnSpecifications">
@@ -1680,7 +2007,7 @@
 					<References Name="[dbo].[t_cat_tipo_servicio]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="68" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="81" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_T_CAT_TIPO_SOLICITUD_SERVICIO]">
 			<Relationship Name="ColumnSpecifications">
@@ -1708,7 +2035,7 @@
 					<References Name="[dbo].[t_cat_tipo_solicitud_servicio]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="69" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="82" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_T_CAT_TIPO_TITULAR_INMUEBLE]">
 			<Relationship Name="ColumnSpecifications">
@@ -1727,7 +2054,7 @@
 					<References Name="[dbo].[t_cat_tipo_titular_inmueble]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="70" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="83" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_T_CAT_TIPO_USO]">
 			<Relationship Name="ColumnSpecifications">
@@ -1746,7 +2073,7 @@
 					<References Name="[dbo].[t_cat_tipo_uso]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="71" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="84" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_T_GES_ARREGLO_PAGO]">
 			<Relationship Name="ColumnSpecifications">
@@ -1765,7 +2092,7 @@
 					<References Name="[dbo].[t_ges_arreglo_pago]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="72" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="85" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_t_ges_cambio_titular]">
 			<Relationship Name="ColumnSpecifications">
@@ -1784,7 +2111,7 @@
 					<References Name="[dbo].[t_ges_cambio_titular]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="73" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="86" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_t_ges_camion_sisterna]">
 			<Relationship Name="ColumnSpecifications">
@@ -1803,7 +2130,7 @@
 					<References Name="[dbo].[t_ges_camion_sisterna]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="74" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="87" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_T_GES_DEVOLUCION]">
 			<Relationship Name="ColumnSpecifications">
@@ -1822,7 +2149,7 @@
 					<References Name="[dbo].[t_ges_devolucion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="75" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="88" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_t_ges_disponibilidad_agua]">
 			<Relationship Name="ColumnSpecifications">
@@ -1841,7 +2168,7 @@
 					<References Name="[dbo].[t_ges_disponibilidad_agua]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="76" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="89" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_t_ges_encargado_transporte]">
 			<Relationship Name="ColumnSpecifications">
@@ -1860,7 +2187,7 @@
 					<References Name="[dbo].[t_ges_encargado_transporte]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="77" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="90" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_T_GES_FIRMA_GESTION]">
 			<Relationship Name="ColumnSpecifications">
@@ -1879,7 +2206,7 @@
 					<References Name="[dbo].[t_ges_firma_gestion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="78" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="91" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_T_GES_GESTION]">
 			<Relationship Name="ColumnSpecifications">
@@ -1898,7 +2225,7 @@
 					<References Name="[dbo].[t_ges_gestion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="79" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="92" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_T_GES_INFORMACION_TITULAR]">
 			<Relationship Name="ColumnSpecifications">
@@ -1917,7 +2244,7 @@
 					<References Name="[dbo].[t_ges_informacion_titular]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="80" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="93" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_t_ges_localizacion_inmueble]">
 			<Relationship Name="ColumnSpecifications">
@@ -1936,7 +2263,7 @@
 					<References Name="[dbo].[t_ges_localizacion_inmueble]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="81" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="94" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_T_GES_MEDIO_NOTIFICACION]">
 			<Relationship Name="ColumnSpecifications">
@@ -1955,7 +2282,7 @@
 					<References Name="[dbo].[t_ges_medio_notificacion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="82" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="95" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_t_ges_nave]">
 			<Relationship Name="ColumnSpecifications">
@@ -1974,7 +2301,7 @@
 					<References Name="[dbo].[t_ges_nave]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="83" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="96" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_T_GES_NUEVO_SERVICIO]">
 			<Relationship Name="ColumnSpecifications">
@@ -2002,7 +2329,7 @@
 					<References Name="[dbo].[t_ges_nuevo_servicio]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="84" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="97" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_t_ges_proyecto]">
 			<Relationship Name="ColumnSpecifications">
@@ -2021,7 +2348,26 @@
 					<References Name="[dbo].[t_ges_proyecto]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="85" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="98" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_T_GES_RECLAMO_IMPORTE]">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[t_ges_reclamo_importe].[PK_RECLAMO_IMPORTE]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[t_ges_reclamo_importe]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="99" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_t_ges_solicitante]">
 			<Relationship Name="ColumnSpecifications">
@@ -2040,7 +2386,7 @@
 					<References Name="[dbo].[t_ges_solicitante]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="86" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="100" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_t_ges_venta_agua_volumen_movil]">
 			<Relationship Name="ColumnSpecifications">
@@ -2059,7 +2405,7 @@
 					<References Name="[dbo].[t_ges_venta_agua_volumen_movil]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="87" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="101" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_T_SRV_REPORTE_AVERIA]">
 			<Relationship Name="ColumnSpecifications">
@@ -2078,7 +2424,7 @@
 					<References Name="[dbo].[t_srv_reporte_averia]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="88" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="102" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_T_SRV_TRAMITE_GECOSE]">
 			<Relationship Name="ColumnSpecifications">
@@ -2097,7 +2443,7 @@
 					<References Name="[dbo].[t_srv_tramite_gecose]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="89" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="103" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[t_cat_admin_gestion]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -2183,13 +2529,90 @@
 						</Relationship>
 					</Element>
 				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_cat_admin_gestion].[STATUS]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bit]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="17" />
+					</Element>
+				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
 				<Entry>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="57" />
+			<AttachedAnnotation Disambiguator="68" />
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[t_cat_calidad_solicitante]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_cat_calidad_solicitante].[PK_CALIDAD_SOLICITANTE]">
+						<Property Name="IsNullable" Value="False" />
+						<Property Name="IsIdentity" Value="True" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_cat_calidad_solicitante].[NOMBRE]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_cat_calidad_solicitante].[STATUS]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bit]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="4" />
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<AttachedAnnotation Disambiguator="69" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[t_cat_categoria_subclasificacion]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -2243,14 +2666,30 @@
 						</Relationship>
 					</Element>
 				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_cat_categoria_subclasificacion].[STATUS]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bit]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="18" />
+					</Element>
+				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
 				<Entry>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="58" />
-			<AttachedAnnotation Disambiguator="17" />
+			<AttachedAnnotation Disambiguator="70" />
+			<AttachedAnnotation Disambiguator="24" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[t_cat_forma_cancelacion]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -2294,7 +2733,7 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="59" />
+			<AttachedAnnotation Disambiguator="71" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[t_cat_naturaleza_inmueble]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -2332,13 +2771,90 @@
 						</Relationship>
 					</Element>
 				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_cat_naturaleza_inmueble].[STATUS]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bit]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="19" />
+					</Element>
+				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
 				<Entry>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="60" />
+			<AttachedAnnotation Disambiguator="72" />
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[t_cat_pretension]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_cat_pretension].[PK_PRETENSION]">
+						<Property Name="IsNullable" Value="False" />
+						<Property Name="IsIdentity" Value="True" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_cat_pretension].[NOMBRE]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_cat_pretension].[STATUS]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bit]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="3" />
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<AttachedAnnotation Disambiguator="73" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[t_cat_servicio_requerido]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -2376,13 +2892,30 @@
 						</Relationship>
 					</Element>
 				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_cat_servicio_requerido].[STATUS]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bit]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="20" />
+					</Element>
+				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
 				<Entry>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="61" />
+			<AttachedAnnotation Disambiguator="74" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[t_cat_subclasificacion]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -2420,13 +2953,29 @@
 						</Relationship>
 					</Element>
 				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_cat_subclasificacion].[STATUS]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bit]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="21" />
+					</Element>
+				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
 				<Entry>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="62" />
+			<AttachedAnnotation Disambiguator="75" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[t_cat_tipo_averia]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -2466,13 +3015,13 @@
 				</Entry>
 				<Entry>
 					<Element Type="SqlSimpleColumn" Name="[dbo].[t_cat_tipo_averia].[STATUS]">
+						<Property Name="IsNullable" Value="False" />
 						<Relationship Name="TypeSpecifier">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
-									<Property Name="Length" Value="1" />
 									<Relationship Name="Type">
 										<Entry>
-											<References ExternalSource="BuiltIns" Name="[char]" />
+											<References ExternalSource="BuiltIns" Name="[bit]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -2486,8 +3035,7 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="63" />
-			<AttachedAnnotation Disambiguator="13" />
+			<AttachedAnnotation Disambiguator="76" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[t_cat_tipo_calidad]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -2545,7 +3093,7 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="64" />
+			<AttachedAnnotation Disambiguator="77" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[t_cat_tipo_identificacion]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -2585,19 +3133,19 @@
 				</Entry>
 				<Entry>
 					<Element Type="SqlSimpleColumn" Name="[dbo].[t_cat_tipo_identificacion].[STATUS]">
+						<Property Name="IsNullable" Value="False" />
 						<Relationship Name="TypeSpecifier">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
-									<Property Name="Length" Value="1" />
 									<Relationship Name="Type">
 										<Entry>
-											<References ExternalSource="BuiltIns" Name="[char]" />
+											<References ExternalSource="BuiltIns" Name="[bit]" />
 										</Entry>
 									</Relationship>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="3" />
+						<AttachedAnnotation Disambiguator="6" />
 					</Element>
 				</Entry>
 			</Relationship>
@@ -2606,8 +3154,7 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="65" />
-			<AttachedAnnotation Disambiguator="10" />
+			<AttachedAnnotation Disambiguator="78" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[t_cat_tipo_plano]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -2667,7 +3214,7 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="66" />
+			<AttachedAnnotation Disambiguator="79" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[t_cat_tipo_Proyecto]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -2705,13 +3252,30 @@
 						</Relationship>
 					</Element>
 				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_cat_tipo_Proyecto].[STATUS]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bit]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="22" />
+					</Element>
+				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
 				<Entry>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="67" />
+			<AttachedAnnotation Disambiguator="80" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[t_cat_tipo_servicio]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -2749,13 +3313,29 @@
 						</Relationship>
 					</Element>
 				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_cat_tipo_servicio].[STATUS]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bit]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
 				<Entry>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="68" />
+			<AttachedAnnotation Disambiguator="81" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[t_cat_tipo_solicitud_servicio]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -2809,14 +3389,31 @@
 						</Relationship>
 					</Element>
 				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_cat_tipo_solicitud_servicio].[STATUS]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bit]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="23" />
+					</Element>
+				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
 				<Entry>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="69" />
-			<AttachedAnnotation Disambiguator="18" />
+			<AttachedAnnotation Disambiguator="82" />
+			<AttachedAnnotation Disambiguator="25" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[t_cat_tipo_titular_inmueble]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -2855,13 +3452,29 @@
 						</Relationship>
 					</Element>
 				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_cat_tipo_titular_inmueble].[STATUS]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bit]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
 				<Entry>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="70" />
+			<AttachedAnnotation Disambiguator="83" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[t_cat_tipo_uso]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -2899,13 +3512,29 @@
 						</Relationship>
 					</Element>
 				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_cat_tipo_uso].[STATUS]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bit]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
 				<Entry>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="71" />
+			<AttachedAnnotation Disambiguator="84" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[t_ges_arreglo_pago]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -3102,16 +3731,32 @@
 						</Relationship>
 					</Element>
 				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_ges_arreglo_pago].[STATUS]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bit]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
 				<Entry>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="72" />
+			<AttachedAnnotation Disambiguator="85" />
 			<AttachedAnnotation Disambiguator="15" />
-			<AttachedAnnotation Disambiguator="19" />
-			<AttachedAnnotation Disambiguator="20" />
+			<AttachedAnnotation Disambiguator="26" />
+			<AttachedAnnotation Disambiguator="27" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[t_ges_cambio_titular]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -3199,9 +3844,9 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="73" />
-			<AttachedAnnotation Disambiguator="21" />
-			<AttachedAnnotation Disambiguator="22" />
+			<AttachedAnnotation Disambiguator="86" />
+			<AttachedAnnotation Disambiguator="28" />
+			<AttachedAnnotation Disambiguator="29" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[t_ges_camion_sisterna]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -3293,9 +3938,9 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="74" />
-			<AttachedAnnotation Disambiguator="23" />
-			<AttachedAnnotation Disambiguator="24" />
+			<AttachedAnnotation Disambiguator="87" />
+			<AttachedAnnotation Disambiguator="30" />
+			<AttachedAnnotation Disambiguator="31" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[t_ges_devolucion]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -3458,16 +4103,32 @@
 						</Relationship>
 					</Element>
 				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_ges_devolucion].[STATUS]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bit]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
 				<Entry>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="75" />
+			<AttachedAnnotation Disambiguator="88" />
 			<AttachedAnnotation Disambiguator="14" />
-			<AttachedAnnotation Disambiguator="25" />
-			<AttachedAnnotation Disambiguator="26" />
+			<AttachedAnnotation Disambiguator="32" />
+			<AttachedAnnotation Disambiguator="33" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[t_ges_disponibilidad_agua]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -3689,16 +4350,32 @@
 						</Relationship>
 					</Element>
 				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_ges_disponibilidad_agua].[STATUS]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bit]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
 				<Entry>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="76" />
-			<AttachedAnnotation Disambiguator="27" />
-			<AttachedAnnotation Disambiguator="28" />
-			<AttachedAnnotation Disambiguator="29" />
+			<AttachedAnnotation Disambiguator="89" />
+			<AttachedAnnotation Disambiguator="34" />
+			<AttachedAnnotation Disambiguator="35" />
+			<AttachedAnnotation Disambiguator="36" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[t_ges_encargado_transporte]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -3841,7 +4518,7 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="77" />
+			<AttachedAnnotation Disambiguator="90" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[t_ges_firma_gestion]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -3930,7 +4607,7 @@
 						<Relationship Name="TypeSpecifier">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
-									<Property Name="Length" Value="100" />
+									<Property Name="Length" Value="50" />
 									<Relationship Name="Type">
 										<Entry>
 											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
@@ -3946,15 +4623,48 @@
 						<Relationship Name="TypeSpecifier">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
-									<Property Name="IsMax" Value="True" />
+									<Property Name="Length" Value="250" />
 									<Relationship Name="Type">
 										<Entry>
-											<References ExternalSource="BuiltIns" Name="[varbinary]" />
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
 										</Entry>
 									</Relationship>
 								</Element>
 							</Entry>
 						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_ges_firma_gestion].[URL_IDENTIFICACION]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="250" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_ges_firma_gestion].[STATUS]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bit]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="8" />
 					</Element>
 				</Entry>
 			</Relationship>
@@ -3963,9 +4673,9 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="78" />
-			<AttachedAnnotation Disambiguator="30" />
-			<AttachedAnnotation Disambiguator="31" />
+			<AttachedAnnotation Disambiguator="91" />
+			<AttachedAnnotation Disambiguator="37" />
+			<AttachedAnnotation Disambiguator="38" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[t_ges_gestion]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -4050,15 +4760,31 @@
 						</Relationship>
 					</Element>
 				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_ges_gestion].[STATUS]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bit]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
 				<Entry>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="79" />
-			<AttachedAnnotation Disambiguator="32" />
-			<AttachedAnnotation Disambiguator="33" />
+			<AttachedAnnotation Disambiguator="92" />
+			<AttachedAnnotation Disambiguator="39" />
+			<AttachedAnnotation Disambiguator="40" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[t_ges_informacion_titular]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -4192,16 +4918,32 @@
 						</Relationship>
 					</Element>
 				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_ges_informacion_titular].[STATUS]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bit]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
 				<Entry>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="80" />
+			<AttachedAnnotation Disambiguator="93" />
 			<AttachedAnnotation Disambiguator="16" />
-			<AttachedAnnotation Disambiguator="34" />
-			<AttachedAnnotation Disambiguator="35" />
+			<AttachedAnnotation Disambiguator="41" />
+			<AttachedAnnotation Disambiguator="42" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[t_ges_localizacion_inmueble]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -4286,15 +5028,31 @@
 						</Relationship>
 					</Element>
 				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_ges_localizacion_inmueble].[STATUS]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bit]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
 				<Entry>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="81" />
-			<AttachedAnnotation Disambiguator="36" />
-			<AttachedAnnotation Disambiguator="37" />
+			<AttachedAnnotation Disambiguator="94" />
+			<AttachedAnnotation Disambiguator="43" />
+			<AttachedAnnotation Disambiguator="44" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[t_ges_medio_notificacion]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -4395,14 +5153,30 @@
 						</Relationship>
 					</Element>
 				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_ges_medio_notificacion].[STATUS]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bit]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
 				<Entry>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="82" />
-			<AttachedAnnotation Disambiguator="38" />
+			<AttachedAnnotation Disambiguator="95" />
+			<AttachedAnnotation Disambiguator="45" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[t_ges_nave]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -4523,9 +5297,9 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="83" />
-			<AttachedAnnotation Disambiguator="39" />
-			<AttachedAnnotation Disambiguator="40" />
+			<AttachedAnnotation Disambiguator="96" />
+			<AttachedAnnotation Disambiguator="46" />
+			<AttachedAnnotation Disambiguator="47" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[t_ges_nuevo_servicio]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -4652,17 +5426,33 @@
 						</Relationship>
 					</Element>
 				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_ges_nuevo_servicio].[STATUS]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bit]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
 				<Entry>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="84" />
-			<AttachedAnnotation Disambiguator="41" />
-			<AttachedAnnotation Disambiguator="42" />
-			<AttachedAnnotation Disambiguator="43" />
-			<AttachedAnnotation Disambiguator="44" />
+			<AttachedAnnotation Disambiguator="97" />
+			<AttachedAnnotation Disambiguator="48" />
+			<AttachedAnnotation Disambiguator="49" />
+			<AttachedAnnotation Disambiguator="50" />
+			<AttachedAnnotation Disambiguator="51" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[t_ges_proyecto]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -4851,18 +5641,270 @@
 						</Relationship>
 					</Element>
 				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_ges_proyecto].[STATUS]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bit]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
 			</Relationship>
 			<Relationship Name="Schema">
 				<Entry>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="85" />
-			<AttachedAnnotation Disambiguator="45" />
-			<AttachedAnnotation Disambiguator="46" />
-			<AttachedAnnotation Disambiguator="47" />
-			<AttachedAnnotation Disambiguator="48" />
-			<AttachedAnnotation Disambiguator="49" />
+			<AttachedAnnotation Disambiguator="98" />
+			<AttachedAnnotation Disambiguator="52" />
+			<AttachedAnnotation Disambiguator="53" />
+			<AttachedAnnotation Disambiguator="54" />
+			<AttachedAnnotation Disambiguator="55" />
+			<AttachedAnnotation Disambiguator="56" />
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[t_ges_reclamo_importe]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_ges_reclamo_importe].[PK_RECLAMO_IMPORTE]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_ges_reclamo_importe].[FK_TIPO_IDENTIFICACION]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_ges_reclamo_importe].[FK_CALIDAD_SOLICITANTE]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_ges_reclamo_importe].[FK_PRETENSION]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_ges_reclamo_importe].[NOMBRE]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="20" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_ges_reclamo_importe].[P_APELLIDO]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="20" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_ges_reclamo_importe].[S_APELLIDO]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="20" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_ges_reclamo_importe].[IDENTIFICACION]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="20" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_ges_reclamo_importe].[NIS]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_ges_reclamo_importe].[NOMBRE_TITULAR]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="50" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_ges_reclamo_importe].[FACTURAS_RECLAMADAS]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_ges_reclamo_importe].[SOLICITUD]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="1000" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_ges_reclamo_importe].[OTRO]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_ges_reclamo_importe].[STATUS]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[bit]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="7" />
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<AttachedAnnotation Disambiguator="99" />
+			<AttachedAnnotation Disambiguator="57" />
+			<AttachedAnnotation Disambiguator="58" />
+			<AttachedAnnotation Disambiguator="59" />
+			<AttachedAnnotation Disambiguator="60" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[t_ges_solicitante]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -4949,6 +5991,36 @@
 				</Entry>
 				<Entry>
 					<Element Type="SqlSimpleColumn" Name="[dbo].[t_ges_solicitante].[FK_DISTRITO]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_ges_solicitante].[FK_CANTON]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[t_ges_solicitante].[FK_PROVINCIA]">
 						<Relationship Name="TypeSpecifier">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
@@ -5125,10 +6197,10 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="86" />
-			<AttachedAnnotation Disambiguator="50" />
-			<AttachedAnnotation Disambiguator="51" />
-			<AttachedAnnotation Disambiguator="52" />
+			<AttachedAnnotation Disambiguator="100" />
+			<AttachedAnnotation Disambiguator="61" />
+			<AttachedAnnotation Disambiguator="62" />
+			<AttachedAnnotation Disambiguator="63" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[t_ges_venta_agua_volumen_movil]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -5279,8 +6351,8 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="87" />
-			<AttachedAnnotation Disambiguator="53" />
+			<AttachedAnnotation Disambiguator="101" />
+			<AttachedAnnotation Disambiguator="64" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[t_srv_reporte_averia]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -5542,13 +6614,13 @@
 				</Entry>
 				<Entry>
 					<Element Type="SqlSimpleColumn" Name="[dbo].[t_srv_reporte_averia].[STATUS]">
+						<Property Name="IsNullable" Value="False" />
 						<Relationship Name="TypeSpecifier">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
-									<Property Name="Length" Value="1" />
 									<Relationship Name="Type">
 										<Entry>
-											<References ExternalSource="BuiltIns" Name="[char]" />
+											<References ExternalSource="BuiltIns" Name="[bit]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -5562,10 +6634,9 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="88" />
-			<AttachedAnnotation Disambiguator="11" />
-			<AttachedAnnotation Disambiguator="54" />
-			<AttachedAnnotation Disambiguator="55" />
+			<AttachedAnnotation Disambiguator="102" />
+			<AttachedAnnotation Disambiguator="65" />
+			<AttachedAnnotation Disambiguator="66" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[t_srv_tramite_gecose]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -5808,19 +6879,19 @@
 				</Entry>
 				<Entry>
 					<Element Type="SqlSimpleColumn" Name="[dbo].[t_srv_tramite_gecose].[STATUS]">
+						<Property Name="IsNullable" Value="False" />
 						<Relationship Name="TypeSpecifier">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
-									<Property Name="Length" Value="1" />
 									<Relationship Name="Type">
 										<Entry>
-											<References ExternalSource="BuiltIns" Name="[char]" />
+											<References ExternalSource="BuiltIns" Name="[bit]" />
 										</Entry>
 									</Relationship>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="4" />
+						<AttachedAnnotation Disambiguator="5" />
 					</Element>
 				</Entry>
 			</Relationship>
@@ -5829,9 +6900,8 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="89" />
-			<AttachedAnnotation Disambiguator="12" />
-			<AttachedAnnotation Disambiguator="56" />
+			<AttachedAnnotation Disambiguator="103" />
+			<AttachedAnnotation Disambiguator="67" />
 		</Element>
 		<Element Type="SqlSchema" Name="[gestiones]">
 			<Relationship Name="Authorizer">
@@ -5868,7 +6938,7 @@
 					<References Name="[seguridad].[t_seg_operacion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="90" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="104" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[seguridad].[FK_ROL]">
 			<Relationship Name="Columns">
@@ -5891,7 +6961,7 @@
 					<References Name="[seguridad].[t_seg_rol]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="91" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="105" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[seguridad].[FK_t_seg_pantalla_t_seg_modulo]">
 			<Relationship Name="Columns">
@@ -5914,7 +6984,7 @@
 					<References Name="[seguridad].[t_seg_modulo]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="92" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="106" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[seguridad].[FK_t_seg_rol_operacion_t_seg_pantalla]">
 			<Relationship Name="Columns">
@@ -5937,7 +7007,7 @@
 					<References Name="[seguridad].[t_seg_pantalla]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="93" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="107" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[seguridad].[FK_t_seg_usuario_t_seg_rol]">
 			<Relationship Name="Columns">
@@ -5960,7 +7030,7 @@
 					<References Name="[seguridad].[t_seg_rol]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="94" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="108" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[seguridad].[PK_MODULO]">
 			<Relationship Name="ColumnSpecifications">
@@ -5979,7 +7049,7 @@
 					<References Name="[seguridad].[t_seg_modulo]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="95" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="109" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[seguridad].[PK_OPERACION]">
 			<Relationship Name="ColumnSpecifications">
@@ -5998,7 +7068,7 @@
 					<References Name="[seguridad].[t_seg_operacion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="96" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="110" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[seguridad].[PK_ROL]">
 			<Relationship Name="ColumnSpecifications">
@@ -6017,7 +7087,7 @@
 					<References Name="[seguridad].[t_seg_rol]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="97" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="111" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[seguridad].[PK_t_seg_pantalla]">
 			<Relationship Name="ColumnSpecifications">
@@ -6036,7 +7106,7 @@
 					<References Name="[seguridad].[t_seg_pantalla]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="98" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="112" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[seguridad].[PK_t_seg_rol_operacion]">
 			<Relationship Name="ColumnSpecifications">
@@ -6073,7 +7143,7 @@
 					<References Name="[seguridad].[t_seg_rol_operacion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="99" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="113" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[seguridad].[PK_USUARIO]">
 			<Relationship Name="ColumnSpecifications">
@@ -6092,7 +7162,7 @@
 					<References Name="[seguridad].[t_seg_usuario]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="100" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="114" />
 		</Element>
 		<Element Type="SqlTable" Name="[seguridad].[t_seg_modulo]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -6153,7 +7223,7 @@
 					<References Name="[seguridad]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="95" />
+			<AttachedAnnotation Disambiguator="109" />
 		</Element>
 		<Element Type="SqlTable" Name="[seguridad].[t_seg_operacion]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -6214,7 +7284,7 @@
 					<References Name="[seguridad]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="96" />
+			<AttachedAnnotation Disambiguator="110" />
 		</Element>
 		<Element Type="SqlTable" Name="[seguridad].[t_seg_pantalla]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -6291,8 +7361,8 @@
 					<References Name="[seguridad]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="98" />
-			<AttachedAnnotation Disambiguator="92" />
+			<AttachedAnnotation Disambiguator="112" />
+			<AttachedAnnotation Disambiguator="106" />
 		</Element>
 		<Element Type="SqlTable" Name="[seguridad].[t_seg_rol]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -6353,7 +7423,7 @@
 					<References Name="[seguridad]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="97" />
+			<AttachedAnnotation Disambiguator="111" />
 		</Element>
 		<Element Type="SqlTable" Name="[seguridad].[t_seg_rol_operacion]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -6412,10 +7482,10 @@
 					<References Name="[seguridad]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="99" />
-			<AttachedAnnotation Disambiguator="90" />
-			<AttachedAnnotation Disambiguator="91" />
-			<AttachedAnnotation Disambiguator="93" />
+			<AttachedAnnotation Disambiguator="113" />
+			<AttachedAnnotation Disambiguator="104" />
+			<AttachedAnnotation Disambiguator="105" />
+			<AttachedAnnotation Disambiguator="107" />
 		</Element>
 		<Element Type="SqlTable" Name="[seguridad].[t_seg_usuario]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -6742,8 +7812,8 @@
 					<References Name="[seguridad]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="100" />
-			<AttachedAnnotation Disambiguator="94" />
+			<AttachedAnnotation Disambiguator="114" />
+			<AttachedAnnotation Disambiguator="108" />
 		</Element>
 		<Element Type="SqlSchema" Name="[serilog]">
 			<Relationship Name="Authorizer">
@@ -6873,7 +7943,7 @@
 					<References Name="[serilog]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="101" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="115" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[serilog].[PK_ApplicationLog]">
 			<Relationship Name="ColumnSpecifications">
@@ -6892,7 +7962,267 @@
 					<References Name="[serilog].[ApplicationLog]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="101" />
+			<AttachedAnnotation Disambiguator="115" />
+		</Element>
+		<Element Type="SqlExtendedProperty" Name="[SqlColumn].[dbo].[t_cat_calidad_solicitante].[NOMBRE].[MS_Description]">
+			<Property Name="Value">
+				<Value><![CDATA[N'Nombre o Descripción de la calidad del solicitante']]></Value>
+			</Property>
+			<Relationship Name="Host">
+				<Entry>
+					<References Name="[dbo].[t_cat_calidad_solicitante].[NOMBRE]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlExtendedProperty" Name="[SqlColumn].[dbo].[t_cat_calidad_solicitante].[PK_CALIDAD_SOLICITANTE].[MS_Description]">
+			<Property Name="Value">
+				<Value><![CDATA[N'Identificador de la tabla']]></Value>
+			</Property>
+			<Relationship Name="Host">
+				<Entry>
+					<References Name="[dbo].[t_cat_calidad_solicitante].[PK_CALIDAD_SOLICITANTE]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlExtendedProperty" Name="[SqlColumn].[dbo].[t_cat_calidad_solicitante].[STATUS].[MS_Description]">
+			<Property Name="Value">
+				<Value><![CDATA[N'Estado para borrado físico/lógico del registro']]></Value>
+			</Property>
+			<Relationship Name="Host">
+				<Entry>
+					<References Name="[dbo].[t_cat_calidad_solicitante].[STATUS]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlExtendedProperty" Name="[SqlColumn].[dbo].[t_cat_categoria_subclasificacion].[DESCRIPCION].[MS_Description]">
+			<Property Name="Value">
+				<Value><![CDATA[N'Descripcion o nombre de la categoria']]></Value>
+			</Property>
+			<Relationship Name="Host">
+				<Entry>
+					<References Name="[dbo].[t_cat_categoria_subclasificacion].[DESCRIPCION]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlExtendedProperty" Name="[SqlColumn].[dbo].[t_cat_categoria_subclasificacion].[PK_CATEGORIA_SUBCLASIFICACION].[MS_Description]">
+			<Property Name="Value">
+				<Value><![CDATA[N'Identificador de la tabla']]></Value>
+			</Property>
+			<Relationship Name="Host">
+				<Entry>
+					<References Name="[dbo].[t_cat_categoria_subclasificacion].[PK_CATEGORIA_SUBCLASIFICACION]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlExtendedProperty" Name="[SqlColumn].[dbo].[t_cat_categoria_subclasificacion].[PK_SUBCLASIFICACION].[MS_Description]">
+			<Property Name="Value">
+				<Value><![CDATA[N'Identificador de la tabla relacionada subclasificación']]></Value>
+			</Property>
+			<Relationship Name="Host">
+				<Entry>
+					<References Name="[dbo].[t_cat_categoria_subclasificacion].[PK_SUBCLASIFICACION]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlExtendedProperty" Name="[SqlColumn].[dbo].[t_cat_categoria_subclasificacion].[STATUS].[MS_Description]">
+			<Property Name="Value">
+				<Value><![CDATA[N'Estado para borrado físico/lógico del registro']]></Value>
+			</Property>
+			<Relationship Name="Host">
+				<Entry>
+					<References Name="[dbo].[t_cat_categoria_subclasificacion].[STATUS]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlExtendedProperty" Name="[SqlColumn].[dbo].[t_cat_naturaleza_inmueble].[DESCRIPCION].[MS_Description]">
+			<Property Name="Value">
+				<Value><![CDATA[N'Descripción de la Naturaleza del inmueble']]></Value>
+			</Property>
+			<Relationship Name="Host">
+				<Entry>
+					<References Name="[dbo].[t_cat_naturaleza_inmueble].[DESCRIPCION]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlExtendedProperty" Name="[SqlColumn].[dbo].[t_cat_naturaleza_inmueble].[PK_NATURALEZA_INMUEBLE].[MS_Description]">
+			<Property Name="Value">
+				<Value><![CDATA[N'Identificador de la tabla']]></Value>
+			</Property>
+			<Relationship Name="Host">
+				<Entry>
+					<References Name="[dbo].[t_cat_naturaleza_inmueble].[PK_NATURALEZA_INMUEBLE]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlExtendedProperty" Name="[SqlColumn].[dbo].[t_cat_naturaleza_inmueble].[STATUS].[MS_Description]">
+			<Property Name="Value">
+				<Value><![CDATA[N'Estado para borrado físico/lógico del registro']]></Value>
+			</Property>
+			<Relationship Name="Host">
+				<Entry>
+					<References Name="[dbo].[t_cat_naturaleza_inmueble].[STATUS]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlExtendedProperty" Name="[SqlColumn].[dbo].[t_cat_servicio_requerido].[DESCRIPCION].[MS_Description]">
+			<Property Name="Value">
+				<Value><![CDATA[N'Nombre del Tipo de Servicio Requerido']]></Value>
+			</Property>
+			<Relationship Name="Host">
+				<Entry>
+					<References Name="[dbo].[t_cat_servicio_requerido].[DESCRIPCION]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlExtendedProperty" Name="[SqlColumn].[dbo].[t_cat_servicio_requerido].[PK_SERVICIO_REQUERIDO].[MS_Description]">
+			<Property Name="Value">
+				<Value><![CDATA[N'Identificador de la tabla']]></Value>
+			</Property>
+			<Relationship Name="Host">
+				<Entry>
+					<References Name="[dbo].[t_cat_servicio_requerido].[PK_SERVICIO_REQUERIDO]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlExtendedProperty" Name="[SqlColumn].[dbo].[t_cat_servicio_requerido].[STATUS].[MS_Description]">
+			<Property Name="Value">
+				<Value><![CDATA[N'Estado para borrado físico/lógico del registro']]></Value>
+			</Property>
+			<Relationship Name="Host">
+				<Entry>
+					<References Name="[dbo].[t_cat_servicio_requerido].[STATUS]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlExtendedProperty" Name="[SqlColumn].[dbo].[t_cat_subclasificacion].[DESCRIPCION].[MS_Description]">
+			<Property Name="Value">
+				<Value><![CDATA[N'Descripción o nombre de la subclasificación']]></Value>
+			</Property>
+			<Relationship Name="Host">
+				<Entry>
+					<References Name="[dbo].[t_cat_subclasificacion].[DESCRIPCION]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlExtendedProperty" Name="[SqlColumn].[dbo].[t_cat_subclasificacion].[PK_SUBCLASIFICACION].[MS_Description]">
+			<Property Name="Value">
+				<Value><![CDATA[N'Identificador de la tabla']]></Value>
+			</Property>
+			<Relationship Name="Host">
+				<Entry>
+					<References Name="[dbo].[t_cat_subclasificacion].[PK_SUBCLASIFICACION]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlExtendedProperty" Name="[SqlColumn].[dbo].[t_cat_subclasificacion].[STATUS].[MS_Description]">
+			<Property Name="Value">
+				<Value><![CDATA[N'Estado para borrado físico/lógico del registro']]></Value>
+			</Property>
+			<Relationship Name="Host">
+				<Entry>
+					<References Name="[dbo].[t_cat_subclasificacion].[STATUS]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlExtendedProperty" Name="[SqlColumn].[dbo].[t_cat_tipo_Proyecto].[DESCRIPCION].[MS_Description]">
+			<Property Name="Value">
+				<Value><![CDATA[N'Nombre del tipo de proyecto que desea realizar']]></Value>
+			</Property>
+			<Relationship Name="Host">
+				<Entry>
+					<References Name="[dbo].[t_cat_tipo_Proyecto].[DESCRIPCION]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlExtendedProperty" Name="[SqlColumn].[dbo].[t_cat_tipo_Proyecto].[PK_TIPO_PROYECTO].[MS_Description]">
+			<Property Name="Value">
+				<Value><![CDATA[N'Identificador de la tabla']]></Value>
+			</Property>
+			<Relationship Name="Host">
+				<Entry>
+					<References Name="[dbo].[t_cat_tipo_Proyecto].[PK_TIPO_PROYECTO]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlExtendedProperty" Name="[SqlColumn].[dbo].[t_cat_tipo_Proyecto].[STATUS].[MS_Description]">
+			<Property Name="Value">
+				<Value><![CDATA[N'Estado para borrado físico/lógico del registro']]></Value>
+			</Property>
+			<Relationship Name="Host">
+				<Entry>
+					<References Name="[dbo].[t_cat_tipo_Proyecto].[STATUS]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlExtendedProperty" Name="[SqlColumn].[dbo].[t_cat_tipo_solicitud_servicio].[DESCRIPCION].[MS_Description]">
+			<Property Name="Value">
+				<Value><![CDATA[N'Descripción del tipo de solicitud']]></Value>
+			</Property>
+			<Relationship Name="Host">
+				<Entry>
+					<References Name="[dbo].[t_cat_tipo_solicitud_servicio].[DESCRIPCION]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlExtendedProperty" Name="[SqlColumn].[dbo].[t_cat_tipo_solicitud_servicio].[PK_SERVICIO_REQUERIDO].[MS_Description]">
+			<Property Name="Value">
+				<Value><![CDATA[N'Identificador de Servicio requerido']]></Value>
+			</Property>
+			<Relationship Name="Host">
+				<Entry>
+					<References Name="[dbo].[t_cat_tipo_solicitud_servicio].[PK_SERVICIO_REQUERIDO]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlExtendedProperty" Name="[SqlColumn].[dbo].[t_cat_tipo_solicitud_servicio].[PK_TIPO_SOLICITUD_SERVICIO].[MS_Description]">
+			<Property Name="Value">
+				<Value><![CDATA[N'Identificador de solicitud de servicio']]></Value>
+			</Property>
+			<Relationship Name="Host">
+				<Entry>
+					<References Name="[dbo].[t_cat_tipo_solicitud_servicio].[PK_TIPO_SOLICITUD_SERVICIO]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlExtendedProperty" Name="[SqlColumn].[dbo].[t_cat_tipo_solicitud_servicio].[STATUS].[MS_Description]">
+			<Property Name="Value">
+				<Value><![CDATA[N'Estado para borrado físico/lógico del registro']]></Value>
+			</Property>
+			<Relationship Name="Host">
+				<Entry>
+					<References Name="[dbo].[t_cat_tipo_solicitud_servicio].[STATUS]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlExtendedProperty" Name="[SqlColumn].[dbo].[t_cat_tipo_titular_inmueble].[DESCRIPCION].[MS_Description]">
+			<Property Name="Value">
+				<Value><![CDATA[N'Descripción o nombre del tipo de titular del inmueble']]></Value>
+			</Property>
+			<Relationship Name="Host">
+				<Entry>
+					<References Name="[dbo].[t_cat_tipo_titular_inmueble].[DESCRIPCION]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlExtendedProperty" Name="[SqlColumn].[dbo].[t_cat_tipo_titular_inmueble].[PK_TIPO_TITULAR_INMUEBLE].[MS_Description]">
+			<Property Name="Value">
+				<Value><![CDATA[N'Identificador de la tabla']]></Value>
+			</Property>
+			<Relationship Name="Host">
+				<Entry>
+					<References Name="[dbo].[t_cat_tipo_titular_inmueble].[PK_TIPO_TITULAR_INMUEBLE]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlExtendedProperty" Name="[SqlColumn].[dbo].[t_cat_tipo_titular_inmueble].[STATUS].[MS_Description]">
+			<Property Name="Value">
+				<Value><![CDATA[N'Estado para borrado físico/lógico del registro']]></Value>
+			</Property>
+			<Relationship Name="Host">
+				<Entry>
+					<References Name="[dbo].[t_cat_tipo_titular_inmueble].[STATUS]" />
+				</Entry>
+			</Relationship>
 		</Element>
 	</Model>
 </DataSchemaModel>
