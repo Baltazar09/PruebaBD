@@ -1,0 +1,12 @@
+﻿CREATE TABLE [catalogos].[t_cat_admin_gestion] (
+    [PK_ADMIN_GESTION]       INT            IDENTITY (1, 1) NOT NULL,
+    [TITULO]                 NVARCHAR (100) NULL,
+    [DESCRIPCION]            NVARCHAR (250) NULL,
+    [INFORMACION_IMPORTANTE] NVARCHAR (MAX) NULL,
+    [MASCARA_CONSECUTIVO]    NVARCHAR (50)  NULL,
+    [STATUS]                 BIT            CONSTRAINT [DF_t_cat_admin_gestion_STATUS] DEFAULT ((1)) NULL,
+    CONSTRAINT [PK_T_CAT_ADMIN_GESTION] PRIMARY KEY CLUSTERED ([PK_ADMIN_GESTION] ASC)
+);
+
+
+
