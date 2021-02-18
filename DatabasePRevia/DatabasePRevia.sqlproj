@@ -67,6 +67,8 @@
     <Folder Include="serilog\" />
     <Folder Include="serilog\Tables\" />
     <Folder Include="Security\" />
+    <Folder Include="gestiones\" />
+    <Folder Include="gestiones\Tables\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\t_cat_admin_gestion.sql" />
@@ -98,13 +100,9 @@
     <Build Include="dbo\Tables\t_ges_gestion.sql" />
     <Build Include="dbo\Tables\t_ges_informacion_titular.sql" />
     <Build Include="dbo\Tables\t_ges_localizacion_inmueble.sql" />
-    <Build Include="dbo\Tables\t_ges_encargado_transporte.sql" />
     <Build Include="dbo\Tables\t_ges_medio_notificacion.sql" />
-    <Build Include="dbo\Tables\t_ges_camion_sisterna.sql" />
     <Build Include="dbo\Tables\t_ges_nuevo_servicio.sql" />
     <Build Include="dbo\Tables\t_ges_proyecto.sql" />
-    <Build Include="dbo\Tables\t_ges_venta_agua_volumen_movil.sql" />
-    <Build Include="dbo\Tables\t_ges_nave.sql" />
     <Build Include="dbo\Tables\t_cat_tipo_plano.sql" />
     <Build Include="dbo\Tables\t_srv_reporte_averia.sql" />
     <Build Include="dbo\Tables\t_srv_tramite_gecose.sql" />
@@ -127,5 +125,24 @@
     <Build Include="dbo\Tables\t_cat_calidad_solicitante.sql" />
     <Build Include="dbo\Tables\t_cat_pretension.sql" />
     <Build Include="dbo\Tables\t_ges_reclamo_importe.sql" />
+    <Build Include="gestiones\Tables\t_ges_solicitud.sql" />
+    <Build Include="gestiones\Tables\t_ges_solicitante.sql" />
+    <Build Include="gestiones\Tables\t_ges_persona_juridica.sql" />
+    <Build Include="gestiones\Tables\t_ges_persona_fisica.sql" />
+    <Build Include="gestiones\Tables\t_ges_formulario8.sql" />
+    <Build Include="gestiones\Tables\t_ges_formulario7.sql" />
+    <Build Include="gestiones\Tables\t_ges_fomulario6.sql" />
+    <Build Include="gestiones\Tables\t_ges_firma.sql" />
+    <Build Include="gestiones\Tables\t_ges_embarcacion_avion.sql" />
+    <Build Include="gestiones\Tables\t_ges_conductor_representante.sql" />
+    <Build Include="gestiones\Tables\t_ges_certificaciones.sql" />
+    <Build Include="gestiones\Tables\t_ges_camion.sql" />
+    <Build Include="catalogos\Tables\t_cat_tipo_transporte.sql" />
+    <Build Include="catalogos\Tables\t_cat_tipo_solicitante.sql" />
+    <Build Include="catalogos\Tables\t_cat_tipo_plano.sql" />
+    <Build Include="catalogos\Tables\t_cat_tipo_identificacion.sql" />
+    <Build Include="catalogos\Tables\t_cat_tipo_certificacion.sql" />
+    <Build Include="catalogos\Tables\t_cat_formulario.sql" />
+    <Build Include="catalogos\Tables\t_cat_articulos.sql" />
   </ItemGroup>
 </Project>
