@@ -16,3 +16,41 @@
 
 
 
+
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Tipo Persona', @level0type = N'SCHEMA', @level0name = N'gestiones', @level1type = N'TABLE', @level1name = N't_ges_informacion_titular', @level2type = N'COLUMN', @level2name = N'TIPOPERSONA';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Estado para borrado físico/lógico del registro', @level0type = N'SCHEMA', @level0name = N'gestiones', @level1type = N'TABLE', @level1name = N't_ges_informacion_titular', @level2type = N'COLUMN', @level2name = N'STATUS';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Segundo apellido', @level0type = N'SCHEMA', @level0name = N'gestiones', @level1type = N'TABLE', @level1name = N't_ges_informacion_titular', @level2type = N'COLUMN', @level2name = N'S_APELLIDO';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Razón social', @level0type = N'SCHEMA', @level0name = N'gestiones', @level1type = N'TABLE', @level1name = N't_ges_informacion_titular', @level2type = N'COLUMN', @level2name = N'RAZONSOCIAL';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Identificador de la gestión', @level0type = N'SCHEMA', @level0name = N'gestiones', @level1type = N'TABLE', @level1name = N't_ges_informacion_titular', @level2type = N'COLUMN', @level2name = N'PK_INFORMACION_TITULAR';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Primer apellido', @level0type = N'SCHEMA', @level0name = N'gestiones', @level1type = N'TABLE', @level1name = N't_ges_informacion_titular', @level2type = N'COLUMN', @level2name = N'P_APELLIDO';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Nombre completo', @level0type = N'SCHEMA', @level0name = N'gestiones', @level1type = N'TABLE', @level1name = N't_ges_informacion_titular', @level2type = N'COLUMN', @level2name = N'NOMBRE';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Identificación', @level0type = N'SCHEMA', @level0name = N'gestiones', @level1type = N'TABLE', @level1name = N't_ges_informacion_titular', @level2type = N'COLUMN', @level2name = N'IDENTIFICACION';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Identificador del Tipo de titular del inmueble', @level0type = N'SCHEMA', @level0name = N'gestiones', @level1type = N'TABLE', @level1name = N't_ges_informacion_titular', @level2type = N'COLUMN', @level2name = N'FK_TIPO_TITULAR_INMUEBLE';
+

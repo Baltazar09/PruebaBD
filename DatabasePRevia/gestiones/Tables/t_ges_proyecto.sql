@@ -22,3 +22,57 @@
 
 
 
+
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Tipo proyecto (Anteproyecto,Proyecto o Modificación)', @level0type = N'SCHEMA', @level0name = N'gestiones', @level1type = N'TABLE', @level1name = N't_ges_proyecto', @level2type = N'COLUMN', @level2name = N'TIPOPROYECTO';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Estado para borrado físico/lógico del registro', @level0type = N'SCHEMA', @level0name = N'gestiones', @level1type = N'TABLE', @level1name = N't_ges_proyecto', @level2type = N'COLUMN', @level2name = N'STATUS';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Identificador de la gestión', @level0type = N'SCHEMA', @level0name = N'gestiones', @level1type = N'TABLE', @level1name = N't_ges_proyecto', @level2type = N'COLUMN', @level2name = N'PK_PROYECTO';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Otras señas', @level0type = N'SCHEMA', @level0name = N'gestiones', @level1type = N'TABLE', @level1name = N't_ges_proyecto', @level2type = N'COLUMN', @level2name = N'OTRO';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Niveles constructivos', @level0type = N'SCHEMA', @level0name = N'gestiones', @level1type = N'TABLE', @level1name = N't_ges_proyecto', @level2type = N'COLUMN', @level2name = N'NIVELES';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Identificador del tipo de uso', @level0type = N'SCHEMA', @level0name = N'gestiones', @level1type = N'TABLE', @level1name = N't_ges_proyecto', @level2type = N'COLUMN', @level2name = N'FK_TIPO_USO';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Identificador del tipo de servicio', @level0type = N'SCHEMA', @level0name = N'gestiones', @level1type = N'TABLE', @level1name = N't_ges_proyecto', @level2type = N'COLUMN', @level2name = N'FK_TIPO_SERVICIO';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Identificador de la subclasificación', @level0type = N'SCHEMA', @level0name = N'gestiones', @level1type = N'TABLE', @level1name = N't_ges_proyecto', @level2type = N'COLUMN', @level2name = N'FK_SUBCLASIFICACION';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Identificador de la categoria de subclasificación', @level0type = N'SCHEMA', @level0name = N'gestiones', @level1type = N'TABLE', @level1name = N't_ges_proyecto', @level2type = N'COLUMN', @level2name = N'FK_CATEGORIA_SUBCLASIFICACION';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Descripción del Proyecto', @level0type = N'SCHEMA', @level0name = N'gestiones', @level1type = N'TABLE', @level1name = N't_ges_proyecto', @level2type = N'COLUMN', @level2name = N'DESCRIPCION';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Caudal requerido', @level0type = N'SCHEMA', @level0name = N'gestiones', @level1type = N'TABLE', @level1name = N't_ges_proyecto', @level2type = N'COLUMN', @level2name = N'CAUDAL';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Cantidad de apartamentos', @level0type = N'SCHEMA', @level0name = N'gestiones', @level1type = N'TABLE', @level1name = N't_ges_proyecto', @level2type = N'COLUMN', @level2name = N'CANTIDAD';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Area construcción', @level0type = N'SCHEMA', @level0name = N'gestiones', @level1type = N'TABLE', @level1name = N't_ges_proyecto', @level2type = N'COLUMN', @level2name = N'AREA';
+
