@@ -10,3 +10,29 @@
 
 
 
+
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Titulo de la gestión', @level0type = N'SCHEMA', @level0name = N'catalogos', @level1type = N'TABLE', @level1name = N't_cat_admin_gestion', @level2type = N'COLUMN', @level2name = N'TITULO';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Estado para borrado físico/lógico del registro', @level0type = N'SCHEMA', @level0name = N'catalogos', @level1type = N'TABLE', @level1name = N't_cat_admin_gestion', @level2type = N'COLUMN', @level2name = N'STATUS';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Identificador de la tabla', @level0type = N'SCHEMA', @level0name = N'catalogos', @level1type = N'TABLE', @level1name = N't_cat_admin_gestion', @level2type = N'COLUMN', @level2name = N'PK_ADMIN_GESTION';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Mascara para la creación del consecutivo de la gestión', @level0type = N'SCHEMA', @level0name = N'catalogos', @level1type = N'TABLE', @level1name = N't_cat_admin_gestion', @level2type = N'COLUMN', @level2name = N'MASCARA_CONSECUTIVO';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Información Importante de la gestión', @level0type = N'SCHEMA', @level0name = N'catalogos', @level1type = N'TABLE', @level1name = N't_cat_admin_gestion', @level2type = N'COLUMN', @level2name = N'INFORMACION_IMPORTANTE';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Descripcion de la gestión', @level0type = N'SCHEMA', @level0name = N'catalogos', @level1type = N'TABLE', @level1name = N't_cat_admin_gestion', @level2type = N'COLUMN', @level2name = N'DESCRIPCION';
+
