@@ -2,7 +2,6 @@
     [PK_RECLAMO_IMPORTE]     INT             NOT NULL,
     [FK_TIPO_IDENTIFICACION] INT             NULL,
     [FK_CALIDAD_SOLICITANTE] INT             NULL,
-    [FK_PRETENSION]          INT             NULL,
     [NOMBRE]                 NVARCHAR (20)   NULL,
     [P_APELLIDO]             NVARCHAR (20)   NULL,
     [S_APELLIDO]             NVARCHAR (20)   NULL,
@@ -15,10 +14,11 @@
     [STATUS]                 BIT             DEFAULT ((1)) NOT NULL,
     CONSTRAINT [PK_T_GES_RECLAMO_IMPORTE] PRIMARY KEY CLUSTERED ([PK_RECLAMO_IMPORTE] ASC),
     CONSTRAINT [FK_T_GES_RECLAMO_IMPORTE_T_CAT_CALIDAD_SOLICITANTE] FOREIGN KEY ([FK_CALIDAD_SOLICITANTE]) REFERENCES [catalogos].[t_cat_calidad_solicitante] ([PK_CALIDAD_SOLICITANTE]),
-    CONSTRAINT [FK_T_GES_RECLAMO_IMPORTE_T_CAT_PRETENSION] FOREIGN KEY ([FK_PRETENSION]) REFERENCES [catalogos].[t_cat_pretension] ([PK_PRETENSION]),
     CONSTRAINT [FK_T_GES_RECLAMO_IMPORTE_T_CAT_TIPO_IDENTIFICACION] FOREIGN KEY ([FK_TIPO_IDENTIFICACION]) REFERENCES [catalogos].[t_cat_tipo_identificacion] ([PK_TIPO_IDENTIFICACION]),
     CONSTRAINT [FK_T_GES_RECLAMO_IMPORTE_T_GES_GESTION] FOREIGN KEY ([PK_RECLAMO_IMPORTE]) REFERENCES [gestiones].[t_ges_gestion] ([PK_GESTION])
 );
+
+
 
 
 
@@ -70,7 +70,7 @@ EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Identificad
 
 
 GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Identificador de la pretensión', @level0type = N'SCHEMA', @level0name = N'gestiones', @level1type = N'TABLE', @level1name = N't_ges_reclamo_importe', @level2type = N'COLUMN', @level2name = N'FK_PRETENSION';
+
 
 
 GO
