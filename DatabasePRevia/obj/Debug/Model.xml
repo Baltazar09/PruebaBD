@@ -98,22 +98,6 @@
 			</Property>
 			<Relationship Name="DefiningTable">
 				<Entry>
-					<References Name="[gestiones].[t_ges_reclamo_importe]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForColumn">
-				<Entry>
-					<References Name="[gestiones].[t_ges_reclamo_importe].[STATUS]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="6" />
-		</Element>
-		<Element Type="SqlDefaultConstraint">
-			<Property Name="DefaultExpressionScript">
-				<Value><![CDATA[((1))]]></Value>
-			</Property>
-			<Relationship Name="DefiningTable">
-				<Entry>
 					<References Name="[gestiones].[t_ges_firma_gestion]" />
 				</Entry>
 			</Relationship>
@@ -122,7 +106,7 @@
 					<References Name="[gestiones].[t_ges_firma_gestion].[STATUS]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="7" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="6" />
 		</Element>
 		<Element Type="SqlDefaultConstraint">
 			<Property Name="DefaultExpressionScript">
@@ -138,7 +122,7 @@
 					<References Name="[catalogos].[t_cat_tipo_identificacion].[STATUS]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="8" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="7" />
 		</Element>
 		<Element Type="SqlDefaultConstraint">
 			<Property Name="DefaultExpressionScript">
@@ -152,6 +136,22 @@
 			<Relationship Name="ForColumn">
 				<Entry>
 					<References Name="[catalogos].[t_cat_pretension].[STATUS]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="8" />
+		</Element>
+		<Element Type="SqlDefaultConstraint">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[((1))]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[gestiones].[t_ges_reclamo_importe]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[gestiones].[t_ges_reclamo_importe].[STATUS]" />
 				</Entry>
 			</Relationship>
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="9" />
@@ -1968,7 +1968,7 @@
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="9" />
+						<AttachedAnnotation Disambiguator="8" />
 					</Element>
 				</Entry>
 			</Relationship>
@@ -2508,7 +2508,7 @@
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="8" />
+						<AttachedAnnotation Disambiguator="7" />
 					</Element>
 				</Entry>
 			</Relationship>
@@ -5352,6 +5352,52 @@
 			</Relationship>
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="136" />
 		</Element>
+		<Element Type="SqlForeignKeyConstraint" Name="[gestiones].[FK_T_GES_RECLAMO_IMPORTE_PRETENCION_T_CAT_PRETENSION]">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[gestiones].[t_ges_reclamo_importe_pretencion].[FK_RECLAMO_IMPORTE]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[gestiones].[t_ges_reclamo_importe_pretencion]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[gestiones].[t_ges_reclamo_importe].[PK_RECLAMO_IMPORTE]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[gestiones].[t_ges_reclamo_importe]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="137" />
+		</Element>
+		<Element Type="SqlForeignKeyConstraint" Name="[gestiones].[FK_T_GES_RECLAMO_IMPORTE_PRETENCION_T_GES_RECLAMO_IMPORTE]">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[gestiones].[t_ges_reclamo_importe_pretencion].[FK_PRETENSION]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[gestiones].[t_ges_reclamo_importe_pretencion]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[catalogos].[t_cat_pretension].[PK_PRETENSION]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[catalogos].[t_cat_pretension]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="138" />
+		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[gestiones].[FK_T_GES_RECLAMO_IMPORTE_T_CAT_CALIDAD_SOLICITANTE]">
 			<Relationship Name="Columns">
 				<Entry>
@@ -5373,30 +5419,7 @@
 					<References Name="[catalogos].[t_cat_calidad_solicitante]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="137" />
-		</Element>
-		<Element Type="SqlForeignKeyConstraint" Name="[gestiones].[FK_T_GES_RECLAMO_IMPORTE_T_CAT_PRETENSION]">
-			<Relationship Name="Columns">
-				<Entry>
-					<References Name="[gestiones].[t_ges_reclamo_importe].[FK_PRETENSION]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[gestiones].[t_ges_reclamo_importe]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignColumns">
-				<Entry>
-					<References Name="[catalogos].[t_cat_pretension].[PK_PRETENSION]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForeignTable">
-				<Entry>
-					<References Name="[catalogos].[t_cat_pretension]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="138" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="139" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[gestiones].[FK_T_GES_RECLAMO_IMPORTE_T_CAT_TIPO_IDENTIFICACION]">
 			<Relationship Name="Columns">
@@ -5419,7 +5442,7 @@
 					<References Name="[catalogos].[t_cat_tipo_identificacion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="139" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="140" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[gestiones].[FK_T_GES_RECLAMO_IMPORTE_T_GES_GESTION]">
 			<Relationship Name="Columns">
@@ -5442,7 +5465,7 @@
 					<References Name="[gestiones].[t_ges_gestion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="140" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="141" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[gestiones].[FK_t_ges_solicitante_B_t_cat_tipo_solicitante]">
 			<Relationship Name="Columns">
@@ -5465,7 +5488,7 @@
 					<References Name="[catalogos].[t_cat_tipo_solicitante]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="141" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="142" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[gestiones].[FK_t_ges_solicitud_t_cat_formulario]">
 			<Relationship Name="Columns">
@@ -5488,7 +5511,7 @@
 					<References Name="[catalogos].[t_cat_formulario]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="142" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="143" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[gestiones].[FK_t_ges_suspencion_servicio_t_cat_calidad_solicitante]">
 			<Relationship Name="Columns">
@@ -5511,7 +5534,7 @@
 					<References Name="[catalogos].[t_cat_calidad_solicitante]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="143" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="144" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[gestiones].[FK_t_ges_suspencion_servicio_t_cat_tipo_accion]">
 			<Relationship Name="Columns">
@@ -5534,7 +5557,7 @@
 					<References Name="[catalogos].[t_cat_tipo_accion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="144" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="145" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[gestiones].[FK_t_ges_suspencion_servicio_t_cat_tipo_datos_solicitante]">
 			<Relationship Name="Columns">
@@ -5557,7 +5580,7 @@
 					<References Name="[catalogos].[t_cat_tipo_datos_solicitante]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="145" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="146" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[gestiones].[FK_t_ges_suspencion_servicio_t_cat_tipo_identificacion]">
 			<Relationship Name="Columns">
@@ -5580,7 +5603,7 @@
 					<References Name="[catalogos].[t_cat_tipo_identificacion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="146" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="147" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[gestiones].[FK_t_ges_suspencion_servicio_t_ges_gestion]">
 			<Relationship Name="Columns">
@@ -5603,7 +5626,7 @@
 					<References Name="[gestiones].[t_ges_gestion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="147" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="148" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[gestiones].[PK_T_GES_ARREGLO_PAGO]">
 			<Relationship Name="ColumnSpecifications">
@@ -5622,7 +5645,7 @@
 					<References Name="[gestiones].[t_ges_arreglo_pago]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="148" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="149" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[gestiones].[PK_t_ges_cambio_titular]">
 			<Relationship Name="ColumnSpecifications">
@@ -5641,7 +5664,7 @@
 					<References Name="[gestiones].[t_ges_cambio_titular]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="149" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="150" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[gestiones].[PK_t_ges_camion]">
 			<Relationship Name="ColumnSpecifications">
@@ -5660,7 +5683,7 @@
 					<References Name="[gestiones].[t_ges_camion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="150" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="151" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[gestiones].[PK_t_ges_certificaciones]">
 			<Relationship Name="ColumnSpecifications">
@@ -5679,7 +5702,7 @@
 					<References Name="[gestiones].[t_ges_certificaciones]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="151" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="152" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[gestiones].[PK_t_ges_conductor_representante]">
 			<Relationship Name="ColumnSpecifications">
@@ -5698,7 +5721,7 @@
 					<References Name="[gestiones].[t_ges_conductor_representante]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="152" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="153" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[gestiones].[PK_t_ges_constancia_servicio_existente]">
 			<Relationship Name="ColumnSpecifications">
@@ -5717,7 +5740,7 @@
 					<References Name="[gestiones].[t_ges_constancia_servicio_existente]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="153" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="154" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[gestiones].[PK_T_GES_DEVOLUCION]">
 			<Relationship Name="ColumnSpecifications">
@@ -5736,7 +5759,7 @@
 					<References Name="[gestiones].[t_ges_devolucion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="154" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="155" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[gestiones].[PK_t_ges_disponibilidad_agua]">
 			<Relationship Name="ColumnSpecifications">
@@ -5755,7 +5778,7 @@
 					<References Name="[gestiones].[t_ges_disponibilidad_agua]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="155" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="156" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[gestiones].[PK_t_ges_embarcacion_avion]">
 			<Relationship Name="ColumnSpecifications">
@@ -5774,7 +5797,7 @@
 					<References Name="[gestiones].[t_ges_embarcacion_avion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="156" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="157" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[gestiones].[PK_t_ges_firma]">
 			<Relationship Name="ColumnSpecifications">
@@ -5793,7 +5816,7 @@
 					<References Name="[gestiones].[t_ges_firma]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="157" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="158" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[gestiones].[PK_T_GES_FIRMA_GESTION]">
 			<Relationship Name="ColumnSpecifications">
@@ -5812,7 +5835,7 @@
 					<References Name="[gestiones].[t_ges_firma_gestion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="158" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="159" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[gestiones].[PK_t_ges_fomulario6]">
 			<Relationship Name="ColumnSpecifications">
@@ -5831,7 +5854,7 @@
 					<References Name="[gestiones].[t_ges_fomulario6]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="159" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="160" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[gestiones].[PK_t_ges_formalizacion_servicio]">
 			<Relationship Name="ColumnSpecifications">
@@ -5850,7 +5873,7 @@
 					<References Name="[gestiones].[t_ges_formalizacion_servicio]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="160" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="161" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[gestiones].[PK_t_ges_formulario7]">
 			<Relationship Name="ColumnSpecifications">
@@ -5869,7 +5892,7 @@
 					<References Name="[gestiones].[t_ges_formulario7]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="161" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="162" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[gestiones].[PK_t_ges_formulario8]">
 			<Relationship Name="ColumnSpecifications">
@@ -5888,7 +5911,7 @@
 					<References Name="[gestiones].[t_ges_formulario8]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="162" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="163" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[gestiones].[PK_T_GES_GESTION]">
 			<Relationship Name="ColumnSpecifications">
@@ -5907,7 +5930,7 @@
 					<References Name="[gestiones].[t_ges_gestion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="163" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="164" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[gestiones].[PK_T_GES_INFORMACION_TITULAR]">
 			<Relationship Name="ColumnSpecifications">
@@ -5926,7 +5949,7 @@
 					<References Name="[gestiones].[t_ges_informacion_titular]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="164" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="165" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[gestiones].[PK_t_ges_localizacion_inmueble]">
 			<Relationship Name="ColumnSpecifications">
@@ -5945,7 +5968,7 @@
 					<References Name="[gestiones].[t_ges_localizacion_inmueble]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="165" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="166" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[gestiones].[PK_T_GES_MEDIO_NOTIFICACION]">
 			<Relationship Name="ColumnSpecifications">
@@ -5964,7 +5987,7 @@
 					<References Name="[gestiones].[t_ges_medio_notificacion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="166" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="167" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[gestiones].[PK_T_GES_NUEVO_SERVICIO]">
 			<Relationship Name="ColumnSpecifications">
@@ -5992,7 +6015,7 @@
 					<References Name="[gestiones].[t_ges_nuevo_servicio]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="167" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="168" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[gestiones].[PK_t_ges_persona_fisica]">
 			<Relationship Name="ColumnSpecifications">
@@ -6011,7 +6034,7 @@
 					<References Name="[gestiones].[t_ges_persona_fisica]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="168" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="169" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[gestiones].[PK_t_ges_persona_juridica]">
 			<Relationship Name="ColumnSpecifications">
@@ -6030,7 +6053,7 @@
 					<References Name="[gestiones].[t_ges_persona_juridica]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="169" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="170" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[gestiones].[PK_t_ges_proyecto]">
 			<Relationship Name="ColumnSpecifications">
@@ -6049,7 +6072,7 @@
 					<References Name="[gestiones].[t_ges_proyecto]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="170" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="171" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[gestiones].[PK_t_ges_reanudacion_servicio]">
 			<Relationship Name="ColumnSpecifications">
@@ -6068,7 +6091,7 @@
 					<References Name="[gestiones].[t_ges_reanudacion_servicio]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="171" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="172" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[gestiones].[PK_T_GES_RECLAMO_IMPORTE]">
 			<Relationship Name="ColumnSpecifications">
@@ -6087,7 +6110,7 @@
 					<References Name="[gestiones].[t_ges_reclamo_importe]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="172" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="173" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[gestiones].[PK_t_ges_solicitante_B]">
 			<Relationship Name="ColumnSpecifications">
@@ -6106,7 +6129,7 @@
 					<References Name="[gestiones].[t_ges_solicitante]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="173" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="174" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[gestiones].[PK_t_ges_solicitud]">
 			<Relationship Name="ColumnSpecifications">
@@ -6125,7 +6148,7 @@
 					<References Name="[gestiones].[t_ges_solicitud]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="174" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="175" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[gestiones].[PK_t_ges_suspencion_servicio]">
 			<Relationship Name="ColumnSpecifications">
@@ -6144,7 +6167,7 @@
 					<References Name="[gestiones].[t_ges_suspencion_servicio]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="175" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="176" />
 		</Element>
 		<Element Type="SqlTable" Name="[gestiones].[t_ges_arreglo_pago]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -6363,7 +6386,7 @@
 					<References Name="[gestiones]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="148" />
+			<AttachedAnnotation Disambiguator="149" />
 			<AttachedAnnotation Disambiguator="62" />
 			<AttachedAnnotation Disambiguator="77" />
 			<AttachedAnnotation Disambiguator="78" />
@@ -6454,7 +6477,7 @@
 					<References Name="[gestiones]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="149" />
+			<AttachedAnnotation Disambiguator="150" />
 			<AttachedAnnotation Disambiguator="79" />
 			<AttachedAnnotation Disambiguator="80" />
 		</Element>
@@ -6581,7 +6604,7 @@
 					<References Name="[gestiones]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="150" />
+			<AttachedAnnotation Disambiguator="151" />
 			<AttachedAnnotation Disambiguator="81" />
 			<AttachedAnnotation Disambiguator="82" />
 		</Element>
@@ -6659,7 +6682,7 @@
 					<References Name="[gestiones]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="151" />
+			<AttachedAnnotation Disambiguator="152" />
 			<AttachedAnnotation Disambiguator="83" />
 			<AttachedAnnotation Disambiguator="84" />
 		</Element>
@@ -6821,7 +6844,7 @@
 					<References Name="[gestiones]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="152" />
+			<AttachedAnnotation Disambiguator="153" />
 			<AttachedAnnotation Disambiguator="85" />
 		</Element>
 		<Element Type="SqlTable" Name="[gestiones].[t_ges_constancia_servicio_existente]">
@@ -7196,7 +7219,7 @@
 					<References Name="[gestiones]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="153" />
+			<AttachedAnnotation Disambiguator="154" />
 			<AttachedAnnotation Disambiguator="86" />
 			<AttachedAnnotation Disambiguator="87" />
 			<AttachedAnnotation Disambiguator="88" />
@@ -7386,7 +7409,7 @@
 					<References Name="[gestiones]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="154" />
+			<AttachedAnnotation Disambiguator="155" />
 			<AttachedAnnotation Disambiguator="76" />
 			<AttachedAnnotation Disambiguator="92" />
 			<AttachedAnnotation Disambiguator="93" />
@@ -7634,7 +7657,7 @@
 					<References Name="[gestiones]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="155" />
+			<AttachedAnnotation Disambiguator="156" />
 			<AttachedAnnotation Disambiguator="94" />
 			<AttachedAnnotation Disambiguator="95" />
 			<AttachedAnnotation Disambiguator="96" />
@@ -7794,7 +7817,7 @@
 					<References Name="[gestiones]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="156" />
+			<AttachedAnnotation Disambiguator="157" />
 			<AttachedAnnotation Disambiguator="97" />
 			<AttachedAnnotation Disambiguator="98" />
 		</Element>
@@ -7890,7 +7913,7 @@
 					<References Name="[gestiones]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="157" />
+			<AttachedAnnotation Disambiguator="158" />
 			<AttachedAnnotation Disambiguator="101" />
 		</Element>
 		<Element Type="SqlTable" Name="[gestiones].[t_ges_firma_gestion]">
@@ -8037,7 +8060,7 @@
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="7" />
+						<AttachedAnnotation Disambiguator="6" />
 					</Element>
 				</Entry>
 			</Relationship>
@@ -8046,7 +8069,7 @@
 					<References Name="[gestiones]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="158" />
+			<AttachedAnnotation Disambiguator="159" />
 			<AttachedAnnotation Disambiguator="99" />
 			<AttachedAnnotation Disambiguator="100" />
 		</Element>
@@ -8174,7 +8197,7 @@
 					<References Name="[gestiones]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="159" />
+			<AttachedAnnotation Disambiguator="160" />
 			<AttachedAnnotation Disambiguator="102" />
 			<AttachedAnnotation Disambiguator="103" />
 			<AttachedAnnotation Disambiguator="104" />
@@ -8298,7 +8321,7 @@
 					<References Name="[gestiones]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="160" />
+			<AttachedAnnotation Disambiguator="161" />
 			<AttachedAnnotation Disambiguator="105" />
 		</Element>
 		<Element Type="SqlTable" Name="[gestiones].[t_ges_formulario7]">
@@ -8475,7 +8498,7 @@
 					<References Name="[gestiones]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="161" />
+			<AttachedAnnotation Disambiguator="162" />
 			<AttachedAnnotation Disambiguator="106" />
 			<AttachedAnnotation Disambiguator="107" />
 			<AttachedAnnotation Disambiguator="108" />
@@ -8604,7 +8627,7 @@
 					<References Name="[gestiones]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="162" />
+			<AttachedAnnotation Disambiguator="163" />
 			<AttachedAnnotation Disambiguator="111" />
 			<AttachedAnnotation Disambiguator="112" />
 		</Element>
@@ -8713,7 +8736,7 @@
 					<References Name="[gestiones]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="163" />
+			<AttachedAnnotation Disambiguator="164" />
 			<AttachedAnnotation Disambiguator="113" />
 			<AttachedAnnotation Disambiguator="114" />
 		</Element>
@@ -8871,7 +8894,7 @@
 					<References Name="[gestiones]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="164" />
+			<AttachedAnnotation Disambiguator="165" />
 			<AttachedAnnotation Disambiguator="63" />
 			<AttachedAnnotation Disambiguator="115" />
 			<AttachedAnnotation Disambiguator="116" />
@@ -8949,7 +8972,7 @@
 					<References Name="[gestiones]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="165" />
+			<AttachedAnnotation Disambiguator="166" />
 			<AttachedAnnotation Disambiguator="117" />
 			<AttachedAnnotation Disambiguator="118" />
 		</Element>
@@ -9074,7 +9097,7 @@
 					<References Name="[gestiones]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="166" />
+			<AttachedAnnotation Disambiguator="167" />
 			<AttachedAnnotation Disambiguator="119" />
 		</Element>
 		<Element Type="SqlTable" Name="[gestiones].[t_ges_nuevo_servicio]">
@@ -9241,7 +9264,7 @@
 					<References Name="[gestiones]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="167" />
+			<AttachedAnnotation Disambiguator="168" />
 			<AttachedAnnotation Disambiguator="120" />
 			<AttachedAnnotation Disambiguator="121" />
 			<AttachedAnnotation Disambiguator="122" />
@@ -9421,7 +9444,7 @@
 					<References Name="[gestiones]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="168" />
+			<AttachedAnnotation Disambiguator="169" />
 			<AttachedAnnotation Disambiguator="124" />
 			<AttachedAnnotation Disambiguator="125" />
 		</Element>
@@ -9582,7 +9605,7 @@
 					<References Name="[gestiones]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="169" />
+			<AttachedAnnotation Disambiguator="170" />
 			<AttachedAnnotation Disambiguator="126" />
 			<AttachedAnnotation Disambiguator="127" />
 		</Element>
@@ -9795,7 +9818,7 @@
 					<References Name="[gestiones]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="170" />
+			<AttachedAnnotation Disambiguator="171" />
 			<AttachedAnnotation Disambiguator="128" />
 			<AttachedAnnotation Disambiguator="129" />
 			<AttachedAnnotation Disambiguator="130" />
@@ -10031,7 +10054,7 @@
 					<References Name="[gestiones]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="171" />
+			<AttachedAnnotation Disambiguator="172" />
 			<AttachedAnnotation Disambiguator="133" />
 			<AttachedAnnotation Disambiguator="134" />
 			<AttachedAnnotation Disambiguator="135" />
@@ -10073,21 +10096,6 @@
 				</Entry>
 				<Entry>
 					<Element Type="SqlSimpleColumn" Name="[gestiones].[t_ges_reclamo_importe].[FK_CALIDAD_SOLICITANTE]">
-						<Relationship Name="TypeSpecifier">
-							<Entry>
-								<Element Type="SqlTypeSpecifier">
-									<Relationship Name="Type">
-										<Entry>
-											<References ExternalSource="BuiltIns" Name="[int]" />
-										</Entry>
-									</Relationship>
-								</Element>
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
-				<Entry>
-					<Element Type="SqlSimpleColumn" Name="[gestiones].[t_ges_reclamo_importe].[FK_PRETENSION]">
 						<Relationship Name="TypeSpecifier">
 							<Entry>
 								<Element Type="SqlTypeSpecifier">
@@ -10259,7 +10267,7 @@
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="6" />
+						<AttachedAnnotation Disambiguator="9" />
 					</Element>
 				</Entry>
 			</Relationship>
@@ -10268,11 +10276,54 @@
 					<References Name="[gestiones]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="172" />
-			<AttachedAnnotation Disambiguator="137" />
-			<AttachedAnnotation Disambiguator="138" />
+			<AttachedAnnotation Disambiguator="173" />
 			<AttachedAnnotation Disambiguator="139" />
 			<AttachedAnnotation Disambiguator="140" />
+			<AttachedAnnotation Disambiguator="141" />
+		</Element>
+		<Element Type="SqlTable" Name="[gestiones].[t_ges_reclamo_importe_pretencion]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[gestiones].[t_ges_reclamo_importe_pretencion].[FK_RECLAMO_IMPORTE]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[gestiones].[t_ges_reclamo_importe_pretencion].[FK_PRETENSION]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References Name="[gestiones]" />
+				</Entry>
+			</Relationship>
+			<AttachedAnnotation Disambiguator="137" />
+			<AttachedAnnotation Disambiguator="138" />
 		</Element>
 		<Element Type="SqlTable" Name="[gestiones].[t_ges_solicitante]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -10332,8 +10383,8 @@
 					<References Name="[gestiones]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="173" />
-			<AttachedAnnotation Disambiguator="141" />
+			<AttachedAnnotation Disambiguator="174" />
+			<AttachedAnnotation Disambiguator="142" />
 		</Element>
 		<Element Type="SqlTable" Name="[gestiones].[t_ges_solicitud]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -10427,8 +10478,8 @@
 					<References Name="[gestiones]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="174" />
-			<AttachedAnnotation Disambiguator="142" />
+			<AttachedAnnotation Disambiguator="175" />
+			<AttachedAnnotation Disambiguator="143" />
 		</Element>
 		<Element Type="SqlTable" Name="[gestiones].[t_ges_suspencion_servicio]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -10674,12 +10725,12 @@
 					<References Name="[gestiones]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="175" />
-			<AttachedAnnotation Disambiguator="143" />
+			<AttachedAnnotation Disambiguator="176" />
 			<AttachedAnnotation Disambiguator="144" />
 			<AttachedAnnotation Disambiguator="145" />
 			<AttachedAnnotation Disambiguator="146" />
 			<AttachedAnnotation Disambiguator="147" />
+			<AttachedAnnotation Disambiguator="148" />
 		</Element>
 		<Element Type="SqlSchema" Name="[seguridad]">
 			<Relationship Name="Authorizer">
@@ -10709,7 +10760,7 @@
 					<References Name="[seguridad].[t_seg_operacion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="176" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="177" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[seguridad].[FK_ROL]">
 			<Relationship Name="Columns">
@@ -10732,7 +10783,7 @@
 					<References Name="[seguridad].[t_seg_rol]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="177" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="178" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[seguridad].[FK_t_seg_pantalla_t_seg_modulo]">
 			<Relationship Name="Columns">
@@ -10755,7 +10806,7 @@
 					<References Name="[seguridad].[t_seg_modulo]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="178" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="179" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[seguridad].[FK_t_seg_rol_operacion_t_seg_pantalla]">
 			<Relationship Name="Columns">
@@ -10778,7 +10829,7 @@
 					<References Name="[seguridad].[t_seg_pantalla]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="179" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="180" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[seguridad].[FK_t_seg_usuario_t_seg_rol]">
 			<Relationship Name="Columns">
@@ -10801,7 +10852,7 @@
 					<References Name="[seguridad].[t_seg_rol]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="180" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="181" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[seguridad].[PK_MODULO]">
 			<Relationship Name="ColumnSpecifications">
@@ -10820,7 +10871,7 @@
 					<References Name="[seguridad].[t_seg_modulo]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="181" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="182" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[seguridad].[PK_OPERACION]">
 			<Relationship Name="ColumnSpecifications">
@@ -10839,7 +10890,7 @@
 					<References Name="[seguridad].[t_seg_operacion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="182" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="183" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[seguridad].[PK_ROL]">
 			<Relationship Name="ColumnSpecifications">
@@ -10858,7 +10909,7 @@
 					<References Name="[seguridad].[t_seg_rol]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="183" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="184" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[seguridad].[PK_t_seg_pantalla]">
 			<Relationship Name="ColumnSpecifications">
@@ -10877,7 +10928,7 @@
 					<References Name="[seguridad].[t_seg_pantalla]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="184" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="185" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[seguridad].[PK_t_seg_rol_operacion]">
 			<Relationship Name="ColumnSpecifications">
@@ -10914,7 +10965,7 @@
 					<References Name="[seguridad].[t_seg_rol_operacion]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="185" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="186" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[seguridad].[PK_USUARIO]">
 			<Relationship Name="ColumnSpecifications">
@@ -10933,7 +10984,7 @@
 					<References Name="[seguridad].[t_seg_usuario]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="186" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="187" />
 		</Element>
 		<Element Type="SqlTable" Name="[seguridad].[t_seg_modulo]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -10994,7 +11045,7 @@
 					<References Name="[seguridad]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="181" />
+			<AttachedAnnotation Disambiguator="182" />
 		</Element>
 		<Element Type="SqlTable" Name="[seguridad].[t_seg_operacion]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -11055,7 +11106,7 @@
 					<References Name="[seguridad]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="182" />
+			<AttachedAnnotation Disambiguator="183" />
 		</Element>
 		<Element Type="SqlTable" Name="[seguridad].[t_seg_pantalla]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -11132,8 +11183,8 @@
 					<References Name="[seguridad]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="184" />
-			<AttachedAnnotation Disambiguator="178" />
+			<AttachedAnnotation Disambiguator="185" />
+			<AttachedAnnotation Disambiguator="179" />
 		</Element>
 		<Element Type="SqlTable" Name="[seguridad].[t_seg_rol]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -11194,7 +11245,7 @@
 					<References Name="[seguridad]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="183" />
+			<AttachedAnnotation Disambiguator="184" />
 		</Element>
 		<Element Type="SqlTable" Name="[seguridad].[t_seg_rol_operacion]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -11253,10 +11304,10 @@
 					<References Name="[seguridad]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="185" />
-			<AttachedAnnotation Disambiguator="176" />
+			<AttachedAnnotation Disambiguator="186" />
 			<AttachedAnnotation Disambiguator="177" />
-			<AttachedAnnotation Disambiguator="179" />
+			<AttachedAnnotation Disambiguator="178" />
+			<AttachedAnnotation Disambiguator="180" />
 		</Element>
 		<Element Type="SqlTable" Name="[seguridad].[t_seg_usuario]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -11583,8 +11634,8 @@
 					<References Name="[seguridad]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="186" />
-			<AttachedAnnotation Disambiguator="180" />
+			<AttachedAnnotation Disambiguator="187" />
+			<AttachedAnnotation Disambiguator="181" />
 		</Element>
 		<Element Type="SqlSchema" Name="[serilog]">
 			<Relationship Name="Authorizer">
@@ -11714,7 +11765,7 @@
 					<References Name="[serilog]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="187" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="188" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[serilog].[PK_ApplicationLog]">
 			<Relationship Name="ColumnSpecifications">
@@ -11733,7 +11784,7 @@
 					<References Name="[serilog].[ApplicationLog]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="187" />
+			<AttachedAnnotation Disambiguator="188" />
 		</Element>
 		<Element Type="SqlExtendedProperty" Name="[SqlColumn].[catalogos].[t_cat_admin_gestion].[DESCRIPCION].[MS_Description]">
 			<Property Name="Value">
@@ -13815,16 +13866,6 @@
 				</Entry>
 			</Relationship>
 		</Element>
-		<Element Type="SqlExtendedProperty" Name="[SqlColumn].[gestiones].[t_ges_reclamo_importe].[FK_PRETENSION].[MS_Description]">
-			<Property Name="Value">
-				<Value><![CDATA[N'Identificador de la pretensión']]></Value>
-			</Property>
-			<Relationship Name="Host">
-				<Entry>
-					<References Name="[gestiones].[t_ges_reclamo_importe].[FK_PRETENSION]" />
-				</Entry>
-			</Relationship>
-		</Element>
 		<Element Type="SqlExtendedProperty" Name="[SqlColumn].[gestiones].[t_ges_reclamo_importe].[FK_TIPO_IDENTIFICACION].[MS_Description]">
 			<Property Name="Value">
 				<Value><![CDATA[N'Identificador del tipo de identificación']]></Value>
@@ -13932,6 +13973,26 @@
 			<Relationship Name="Host">
 				<Entry>
 					<References Name="[gestiones].[t_ges_reclamo_importe].[STATUS]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlExtendedProperty" Name="[SqlColumn].[gestiones].[t_ges_reclamo_importe_pretencion].[FK_PRETENSION].[MS_Description]">
+			<Property Name="Value">
+				<Value><![CDATA[N'Identificador del tipo de pretensión']]></Value>
+			</Property>
+			<Relationship Name="Host">
+				<Entry>
+					<References Name="[gestiones].[t_ges_reclamo_importe_pretencion].[FK_PRETENSION]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlExtendedProperty" Name="[SqlColumn].[gestiones].[t_ges_reclamo_importe_pretencion].[FK_RECLAMO_IMPORTE].[MS_Description]">
+			<Property Name="Value">
+				<Value><![CDATA[N'Identificador del reclamo']]></Value>
+			</Property>
+			<Relationship Name="Host">
+				<Entry>
+					<References Name="[gestiones].[t_ges_reclamo_importe_pretencion].[FK_RECLAMO_IMPORTE]" />
 				</Entry>
 			</Relationship>
 		</Element>
