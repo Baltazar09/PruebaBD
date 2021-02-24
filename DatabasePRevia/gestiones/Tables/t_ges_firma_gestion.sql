@@ -18,6 +18,8 @@
 
 
 
+
+
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'url de la imagen de la identificación', @level0type = N'SCHEMA', @level0name = N'gestiones', @level1type = N'TABLE', @level1name = N't_ges_firma_gestion', @level2type = N'COLUMN', @level2name = N'URL_IDENTIFICACION';
 

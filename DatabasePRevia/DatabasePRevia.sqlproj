@@ -122,6 +122,8 @@
     <Build Include="gestiones\Tables\t_ges_solicitante.sql" />
     <Build Include="gestiones\Tables\t_ges_suspencion_servicio.sql" />
     <Build Include="catalogos\Tables\t_cat_calidad_solicitante_devolucion.sql" />
+    <Build Include="gestiones\Tables\t_ges_datos_propiedad.sql" />
+    <Build Include="gestiones\Tables\t_ges_reclamo_importe_pretencion.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="catalogos\Tables\t_cat_calidad_solicitante.sql" />
