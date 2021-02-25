@@ -3,7 +3,7 @@
     [FK_CANTON]    INT            NOT NULL,
     [PK_PROVINCIA] INT            NOT NULL,
     [NOMBRE]       NVARCHAR (100) NOT NULL,
-    [STATUS]       BIT            NOT NULL,
+    [STATUS]       BIT            DEFAULT (1) NOT NULL,
     CONSTRAINT [PK_t_cat_distrito_1] PRIMARY KEY CLUSTERED ([PK_DISTRITO] ASC),
     CONSTRAINT [FK_t_cat_distrito_t_cat_canton] FOREIGN KEY ([FK_CANTON]) REFERENCES [catalogos].[t_cat_canton] ([PK_CANTON])
 );

@@ -13,7 +13,7 @@
     [DESCRIPCION]       NVARCHAR (500) NULL,
     [TELEFONO]          NVARCHAR (9)   NULL,
     [SINCRONIZADO]      BIT            NULL,
-    [STATUS]            BIT            NOT NULL,
+    [STATUS]            BIT            DEFAULT ((1)) NOT NULL,
     CONSTRAINT [PK_T_SRV_REPORTE_AVERIA] PRIMARY KEY CLUSTERED ([PK_REPORTE_AVERIA] ASC),
     CONSTRAINT [FK_t_srv_reporte_averia_t_cat_distrito] FOREIGN KEY ([FK_DISTRITO]) REFERENCES [catalogos].[t_cat_distrito] ([PK_DISTRITO]),
     CONSTRAINT [FK_T_SRV_REPORTE_AVERIA_T_CAT_TIPO_AVERIA] FOREIGN KEY ([FK_TIPO_AVERIA]) REFERENCES [catalogos].[t_cat_tipo_averia] ([PK_TIPO_AVERIA])

@@ -11,7 +11,7 @@
     [TIPOPROYECTO]                  CHAR (1)        NULL,
     [OTRO]                          NVARCHAR (250)  NULL,
     [DESCRIPCION]                   NVARCHAR (1000) NULL,
-    [STATUS]                        BIT             NOT NULL,
+    [STATUS]                        BIT             DEFAULT ((1)) NOT NULL,
     CONSTRAINT [PK_t_ges_proyecto] PRIMARY KEY CLUSTERED ([PK_PROYECTO] ASC),
     CONSTRAINT [FK_t_ges_proyecto_t_cat_categoria_subclasificacion] FOREIGN KEY ([FK_CATEGORIA_SUBCLASIFICACION], [FK_SUBCLASIFICACION]) REFERENCES [catalogos].[t_cat_categoria_subclasificacion] ([PK_CATEGORIA_SUBCLASIFICACION], [PK_SUBCLASIFICACION]),
     CONSTRAINT [FK_t_ges_proyecto_t_cat_subclasificacion] FOREIGN KEY ([FK_SUBCLASIFICACION]) REFERENCES [catalogos].[t_cat_subclasificacion] ([PK_SUBCLASIFICACION]),

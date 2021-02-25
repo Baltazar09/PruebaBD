@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [catalogos].[t_cat_naturaleza_inmueble] (
     [PK_NATURALEZA_INMUEBLE] INT            IDENTITY (1, 1) NOT NULL,
     [DESCRIPCION]            NVARCHAR (100) NULL,
-    [STATUS]                 BIT            CONSTRAINT [DF_t_cat_naturaleza_inmueble_STATUS] DEFAULT ((1)) NULL,
+    [STATUS]                 BIT            DEFAULT (1) NOT NULL,
     CONSTRAINT [PK_T_CAT_NATURALEZA_INMUEBLE] PRIMARY KEY CLUSTERED ([PK_NATURALEZA_INMUEBLE] ASC)
 );
 

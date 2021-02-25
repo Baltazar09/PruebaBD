@@ -5,7 +5,7 @@
     [TIENENIS]                BIT           NULL,
     [NIS]                     NVARCHAR (7)  NULL,
     [UNDCONSUMO]              INT           NULL,
-    [STATUS]                  BIT           NOT NULL,
+    [STATUS]                  BIT           DEFAULT ((1)) NOT NULL,
     CONSTRAINT [PK_t_ges_disponibilidad_agua] PRIMARY KEY CLUSTERED ([PK_DISPONIBILIDAD_AGUA] ASC),
     CONSTRAINT [FK_t_ges_disponibilidad_agua_t_cat_tipo_Proyecto] FOREIGN KEY ([FK_TIPO_PROYECTO]) REFERENCES [catalogos].[t_cat_tipo_Proyecto] ([PK_TIPO_PROYECTO]),
     CONSTRAINT [FK_t_ges_disponibilidad_agua_t_ges_gestion] FOREIGN KEY ([PK_DISPONIBILIDAD_AGUA]) REFERENCES [gestiones].[t_ges_gestion] ([PK_GESTION])
