@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [catalogos].[t_cat_forma_cancelacion] (
     [PK_FORMA_CANCELACION] INT            IDENTITY (1, 1) NOT NULL,
     [DESCRIPCION]          NVARCHAR (100) NULL,
-    [STATUS]               BIT            NULL,
+    [STATUS]               BIT            DEFAULT (1) NOT NULL,
     CONSTRAINT [PK_T_CAT_FORMA_CANCELACION] PRIMARY KEY CLUSTERED ([PK_FORMA_CANCELACION] ASC)
 );
 
