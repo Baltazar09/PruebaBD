@@ -14,18 +14,21 @@
     [NIS]                    NVARCHAR (7)    NULL,
     [IDENTIFICACION]         NVARCHAR (50)   NOT NULL,
     [TWOFACTORENABLED]       BIT             DEFAULT ((0)) NOT NULL,
-    [FECHA_CREACION]         DATETIME        NOT NULL,
+    [FECHA_CREACION]         DATETIME        DEFAULT (getdate()) NOT NULL,
     [FECHA_ACTUALIZACION]    DATETIME        NULL,
     [INTENTOS_FALLIDOS]      INT             NOT NULL,
+    [INTENTOS_PERMITIDOS]    INT             DEFAULT ((3)) NOT NULL,
     [FECHA_ULTIMOINGRESO]    DATETIME        NULL,
-    [ESTADO_USUARIO]         CHAR (1)        NULL,
+    [ESTADO_USUARIO]         CHAR (1)        DEFAULT ('A') NOT NULL,
     [IMAGEN_USUARIO]         VARBINARY (MAX) NULL,
     [FK_ROL]                 INT             NULL,
-    [STATUS]                 BIT             NOT NULL,
+    [STATUS]                 BIT             DEFAULT ((1)) NOT NULL,
     CONSTRAINT [PK_USUARIO] PRIMARY KEY CLUSTERED ([PK_USUARIO] ASC),
     CONSTRAINT [FK_T_SEG_USUARIO_T_CAT_TIPO_IDENTIFICACION] FOREIGN KEY ([FK_TIPO_IDENTIFICACION]) REFERENCES [catalogos].[t_cat_tipo_identificacion] ([PK_TIPO_IDENTIFICACION]),
     CONSTRAINT [FK_T_SEG_USUARIO_T_SEG_ROL] FOREIGN KEY ([FK_ROL]) REFERENCES [seguridad].[t_seg_rol] ([PK_ROL])
 );
+
+
 
 
 
@@ -122,4 +125,8 @@ EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Número de 
 
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Identificador del tipo de identificación', @level0type = N'SCHEMA', @level0name = N'seguridad', @level1type = N'TABLE', @level1name = N't_seg_usuario', @level2type = N'COLUMN', @level2name = N'FK_TIPO_IDENTIFICACION';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Cantidad de intentos permitidos para loguearse', @level0type = N'SCHEMA', @level0name = N'seguridad', @level1type = N'TABLE', @level1name = N't_seg_usuario', @level2type = N'COLUMN', @level2name = N'INTENTOS_PERMITIDOS';
 
