@@ -3,6 +3,7 @@
     [NIS]                               NVARCHAR (7)   NULL,
     [FK_NATURALEZA_INMUEBLE]            INT            NULL,
     [FK_TITULO_PROPIEDAD]               INT            NULL,
+    [FK_TIPO_SERVICIO]                  INT            NULL,
     [FOLIO_MATRICULA]                   NVARCHAR (20)  NULL,
     [NODOCUMENTO]                       NVARCHAR (20)  NULL,
     [FK_TIPO_DATOS_SOLICITANTE]         INT            NULL,
@@ -27,9 +28,12 @@
     CONSTRAINT [FK_t_ges_constancia_servicio_existente_t_cat_objetivo_constancia] FOREIGN KEY ([FK_OBJETIVO_CONSTANCIA]) REFERENCES [catalogos].[t_cat_objetivo_constancia] ([PK_OBJETIVO_CONSTANCIA]),
     CONSTRAINT [FK_t_ges_constancia_servicio_existente_t_cat_tipo_datos_solicitante] FOREIGN KEY ([FK_TIPO_DATOS_SOLICITANTE]) REFERENCES [catalogos].[t_cat_tipo_datos_solicitante] ([PK_TIPO_DATOS_SOLICITANTE]),
     CONSTRAINT [FK_t_ges_constancia_servicio_existente_t_cat_tipo_identificacion] FOREIGN KEY ([FK_TIPO_IDENTIFICACION]) REFERENCES [catalogos].[t_cat_tipo_identificacion] ([PK_TIPO_IDENTIFICACION]),
+    CONSTRAINT [FK_t_ges_constancia_servicio_existente_t_cat_tipo_servicio] FOREIGN KEY ([FK_TIPO_SERVICIO]) REFERENCES [catalogos].[t_cat_tipo_servicio] ([PK_TIPO_SERVICIO]),
     CONSTRAINT [FK_t_ges_constancia_servicio_existente_t_cat_titulo_propiedad] FOREIGN KEY ([FK_TITULO_PROPIEDAD]) REFERENCES [catalogos].[t_cat_titulo_propiedad] ([PK_TITULO_PROPIEDAD]),
     CONSTRAINT [FK_t_ges_constancia_servicio_existente_t_ges_gestion] FOREIGN KEY ([PK_CONSTANCIA_SERVICIO_EXISTENTE]) REFERENCES [gestiones].[t_ges_gestion] ([PK_GESTION])
 );
+
+
 
 
 
