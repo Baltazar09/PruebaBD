@@ -5,4 +5,3 @@
     CONSTRAINT [PK_t_ges_solicitante_B] PRIMARY KEY CLUSTERED ([PK_SOLICITANTE] ASC),
     CONSTRAINT [FK_t_ges_solicitante_B_t_cat_tipo_solicitante] FOREIGN KEY ([FK_TIPO_SOLICITANTE]) REFERENCES [catalogos].[t_cat_tipo_solicitante] ([PK_TIPO_SOLICITANTE])
 );
-
