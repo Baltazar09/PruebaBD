@@ -7,4 +7,3 @@ C:\Users\Legion Y540\Documents\Repositorios\PruebaBD\DatabasePRevia\obj\Debug\po
 C:\Users\Legion Y540\Documents\Repositorios\PruebaBD\DatabasePRevia\obj\Debug\predeploy.sql
 C:\Users\Legion Y540\Documents\Repositorios\PruebaBD\DatabasePRevia\obj\Debug\DatabasePRevia.dll
 C:\Users\Legion Y540\Documents\Repositorios\PruebaBD\DatabasePRevia\obj\Debug\DatabasePRevia.pdb
-C:\Users\Legion Y540\Documents\Repositorios\PruebaBD\DatabasePRevia\obj\Debug\DatabasePRevia.sqlprojAssemblyReference.cache
